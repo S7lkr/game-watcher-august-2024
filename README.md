@@ -3,8 +3,8 @@ SoftUni React Course Project
 + NOTE: (do not forget to commit frequently after each step taken)
 
 ## 1. Initialize Project
-- [ ] Initialize git repo
-- [ ] Add softuni practice server
+- [x] Initialize git repo
+- [x] Add softuni practice server
 - [ ] Add base vite react project as client
 - [ ] CleanUp the 'default vite' client
 - [ ] Add project resources
