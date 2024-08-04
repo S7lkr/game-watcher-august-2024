@@ -8,7 +8,7 @@ SoftUni React Course Project
 - [x] Add base vite react project as client
 - [x] CleanUp the 'default vite' client
 - [x] Add project resources
-- [ ] Convert html to jsx (class -> className, for -> htmlFor, img & input -> self-closing tag)
+- [x] Convert html to jsx (class -> className, for -> htmlFor, img & input -> self-closing tag)
 - [ ] Separate html into components
 
 ## 2. React Router
