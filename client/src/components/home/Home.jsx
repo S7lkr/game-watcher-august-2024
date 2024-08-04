@@ -1,5 +1,5 @@
 import Banner from "./banner/Banner";
-import GameLatest from "./game-latest/GameLatest";
+import GameLatest from "../game-latest/GameLatest";
 
 export default function Home() {
     return (

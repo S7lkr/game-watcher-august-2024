@@ -21,7 +21,7 @@ SoftUni React Course Project
 - [x] Abstract requester (create universal fetch-er)
 - [ ] Service layer architecture
 - [ ] Add games api
-- [ ] Preseed practice server (create a new .json in 'data' folder and fill in with data)
+- [x] Preseed practice server (create a new .json in 'data' folder and fill in with data)
 ## 4. Page Implementations
 - [ ] Game list (catalogue): GET all games from server
 - [ ] Details

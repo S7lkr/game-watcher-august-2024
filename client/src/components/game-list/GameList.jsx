@@ -22,9 +22,9 @@ export default function GameList() {
                                 <a href="product-details.html"><img src="/images/top-game-01.jpg" alt="" /></a>
                             </div>
                             <div className="down-content">
-                                <span className="category">Adventure</span>
-                                <h4>Assasin Creed</h4>
-                                <a href="product-details.html">Explore</a>
+                                <span className="category">Action</span>
+                                <h4>Warframe</h4>
+                                <a href="product-details.html">Details</a>
                             </div>
                         </div>
                     </div>
