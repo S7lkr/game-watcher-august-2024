@@ -7,7 +7,7 @@ SoftUni React Course Project
 - [x] Add softuni practice server
 - [x] Add base vite react project as client
 - [x] CleanUp the 'default vite' client
-- [ ] Add project resources
+- [x] Add project resources
 - [ ] Convert html to jsx (class -> className, for -> htmlFor, img & input -> self-closing tag)
 - [ ] Separate html into components
 
