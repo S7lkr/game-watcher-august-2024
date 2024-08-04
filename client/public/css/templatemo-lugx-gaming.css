@@ -119,6 +119,14 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+body {
+  background-image: url("../images/background3.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 100%;
+}
+
 ::selection {
   background: #0071f8;
   color: #fff;
@@ -139,6 +147,7 @@ body {
 
 .section-heading h2 {
   font-size: 36px;
+  color: #d7d7d7;
   font-weight: 700;
   text-transform: capitalize;
   margin-top: 20px;
@@ -285,7 +294,7 @@ Header Style
 */
 
 .background-header {
-  background-color: #0071f8 !important;
+  background-color: #000 !important;
   border-radius: 0px 0px 25px 25px;
   height: 80px!important;
   position: fixed!important;
@@ -317,7 +326,7 @@ Header Style
 }
 
 .header-area .main-nav {
-  background: transparent;
+  background: #000;
   display: flex;
 }
 
@@ -361,8 +370,9 @@ Header Style
 }
 
 .header-area .main-nav .nav li {
-  padding-left: 10px;
-  padding-right: 10px;
+  /* font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+  /* padding-left: 10px;
+  padding-right: 10px; */
   height: 40px;
   line-height: 40px;
 }
@@ -372,8 +382,8 @@ Header Style
   padding-left: 20px;
   padding-right: 20px;
   border-radius: 20px;
-  font-weight: 300;
-  font-size: 15px;
+  font-weight: 200;
+  font-size: 20px;
   height: 40px;
   line-height: 40px;
   text-transform: capitalize;
@@ -388,16 +398,19 @@ Header Style
 
 .header-area .main-nav .nav li:last-child a {
   background-color: #ee626b;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-weight: 500;
 }
 
 .header-area .main-nav .nav li:last-child:hover a {
   background-color: #ee626b;
+  background-color: rgba(255, 255, 255, 0.10);
 }
 
 .header-area .main-nav .nav li:hover a {
   background-color: rgba(255, 255, 255, 0.10);
+  font-weight: bold;
+  
 }
 
 .header-area .main-nav .nav li a.active {
@@ -604,6 +617,7 @@ Header Style
     text-align: center;
   }
   .header-area .container {
+    background-color: #000;
     padding: 0px;
   }
   .header-area .logo {
@@ -651,12 +665,13 @@ Banner Style
 */
 
 .main-banner {
-  background-image: url(../images/banner-bg.jpg);
+  /* background-image: url(../images/banner-bg.jpg); */
+  /* background-image: url(../images/banner2.jpg); */
   border-radius: 0px 0px 150px 150px;
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 225px 0px;
+  padding: 125px 0px;
 }
 
 .main-banner .caption h6 {
@@ -907,8 +922,8 @@ Most Played Style
 */
 
 .most-played {
-  background-color: #f7f7f7;
-  padding: 100px 0px;
+  /* background-color: #f7f7f7; */
+  /* padding: 100px 0px; */
   border-radius: 150px;
 }
 
