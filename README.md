@@ -5,7 +5,7 @@ SoftUni React Course Project
 ## 1. Initialize Project
 - [x] Initialize git repo
 - [x] Add softuni practice server
-- [ ] Add base vite react project as client
+- [x] Add base vite react project as client
 - [ ] CleanUp the 'default vite' client
 - [ ] Add project resources
 - [ ] Convert html to jsx (class -> className, for -> htmlFor, img & input -> self-closing tag)
