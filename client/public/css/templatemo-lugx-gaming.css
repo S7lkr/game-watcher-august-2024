@@ -313,7 +313,7 @@ Header Style
 }
 
 .header-area {
-  position: absolute;
+  /* position: absolute; */
   background-color: transparent;
   top: 40px;
   left: 0;
