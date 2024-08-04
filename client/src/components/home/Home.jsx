@@ -1,11 +1,11 @@
 import Banner from "./banner/Banner";
-import MostPlayed from "./most-played/MostPlayed";
+import GameLatest from "./game-latest/GameLatest";
 
 export default function Home() {
     return (
         <>
             <Banner />
-            <MostPlayed />
+            <GameLatest />
         </>
     );
 }
