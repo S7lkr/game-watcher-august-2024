@@ -1,17 +1,19 @@
 import { request } from "./requester"
 
 const BASE_URL = 'http://localhost:3030/jsonstore/games';
-const buildUrl = (gameId) => `${BASE_URL}/${gameId}/comments`;
+const buildUrl = (gameId) => `${BASE_URL}/details/${gameId}/comments`;
 
-// Function that works with comments (CRUD)
-const create = async (gameId, username, text) => {
-    const response = request.post(buildUrl(gameId), { username, text });
-    const comments = Object.values(response);
-    return comments;
+// Functions that works with comments (CRUD)
+const create = async (gameId, username, text) => request.post(buildUrl(gameId), { username, text });
+const getAll = async () => {
+    const response = request.get(buildUrl(gameId));
+    const allComments = Object.values(response);
+    return allComments;
 }
 
 const commentsAPI = {
     create,
+    getAll,
 }
 
 export default commentsAPI;

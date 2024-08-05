@@ -21,9 +21,6 @@ export default function GameDetails() {
 
     const commentSubmitHandler = async (e) => {
         e.preventDefault();
-        console.log(username);
-        console.log(comment);
-        console.log('Form submitted');
         commentsAPI.create(gameId, username, comment);
     }
 
@@ -58,10 +55,8 @@ export default function GameDetails() {
 
             <section id="comments-section">
                 <h4>Comments:</h4>
-                {true
-                    ? < Comments />
-                    : <h5>--No comments yet--</h5>
-                }
+                {game.comments && Object.values(game.comments).map(comment => <Comments key={comment._id} {...comment}/>)}
+                {/* <h5>--No comments yet--</h5> */}
             </section>
 
             <div id="add-comment-section">

@@ -31,8 +31,8 @@ SoftUni React Course Project
 - [x] Home - Latest Games
 
 ## 5. Comments (Advanced)
-- [ ] Create service for nested resource 'comments'
-- [ ] Post comment to server
+- [x] Create service for nested resource 'comments'
+- [x] Post comment to server
 - [ ] Read comments from server
 - [ ] Add comments in the component
 - [ ] Clear form
