@@ -5,5 +5,5 @@ const BASE_URL = 'http://localhost:3030/jsonstore/games/list';
 
 export const getAll = async () => {
     const response = await request.get(BASE_URL);
-    return response;
+    return Object.values(response);
 }

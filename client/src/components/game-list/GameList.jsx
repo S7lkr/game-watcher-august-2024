@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { request } from "../../api/requester";
 import GameListItem from "./game-list-item/GameListItem";
 import * as gamesAPI from "../../api/games-api";
 
@@ -8,10 +7,7 @@ export default function GameList() {
 
     useEffect(() => {
         gamesAPI.getAll()
-            .then(games => setGames(Object.values(games)));
-            // const response = await request.get(GAMES_URL);
-            // const result = Object.values(response);
-            // setGames(result);
+            .then(games => setGames(games));
     }, []);
 
     return (
@@ -29,7 +25,14 @@ export default function GameList() {
                             <a href="shop.html">View All</a>
                         </div> */}
                     </div>
-                    {games.map(game => <GameListItem key={game._id} {...game}/>)}
+                    {games.length > 0
+                        ? games.map(game => <GameListItem key={game._id} {...game} />)
+                        : (
+                        <div className="section-heading">
+                            <h2 style={{ textAlign: 'center' }}>--No games yet--</h2>
+                        </div>
+                        )
+                    }
                 </div>
             </div>
         </div>
