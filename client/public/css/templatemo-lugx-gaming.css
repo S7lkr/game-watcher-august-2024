@@ -1485,12 +1485,12 @@ Single Page Style
 }
 
 .single-product form input {
-	width: 80px;
-	height: 50px;
+	width: 300px;
+	min-height: 30px;
 	background-color: #f7f7f7;
 	border: 1px solid #e7e7e7;
-	border-radius: 25px;
-	text-align: center;
+	border-radius: 10px;
+	padding: 7px;
 	float: left;
 	margin-right: 15px;
 }
@@ -1634,6 +1634,11 @@ Single Page Style
 	border-radius: 20px;
 }
 
+#add-comment-section .row {
+	--bs-gutter-x: -10.5rem;
+	row-gap: 1em;
+}
+
 
 /* 
 ---------------------------------------------
@@ -1649,6 +1654,7 @@ Contact PAge Style
 #contact-form  fieldset textarea {
 	min-width: 700px;
 	min-height: 120px;
+	padding: 7px;
 }
 
 .contact-page .left-text {
