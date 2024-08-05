@@ -4,17 +4,10 @@ import { useParams } from "react-router";
 import gamesAPI from "../../api/games-api";
 import Comments from "../comments/Comments";
 
-export default function GameDetails({
-    _id,
-    title,
-    imageUrl,
-    summary,
-    category,
-    gameType,
-    releaseYear,
-    maxLevel,
-}) {
+export default function GameDetails() {
     const [game, setGame] = useState({});
+    const [username, setUsername] = useState('');
+    const [comment, setComment] = useState('');
     const { gameId } = useParams();
 
     // make request to fetch the game by _id
@@ -24,6 +17,13 @@ export default function GameDetails({
             setGame(response);
         })();
     }, []);
+
+    const commentSubmitHandler = (e) => {
+        e.preventDefault();
+        console.log(username);
+        console.log(comment);
+        console.log('Form submitted');
+    }
 
     return (
         <div className="single-product section">
@@ -64,11 +64,28 @@ export default function GameDetails({
 
             <div id="add-comment-section">
                 <h2>Add new comment</h2>
-                <form id="contact-form" action="" method="post">
+                <form id="contact-form" action="" method="post" onSubmit={commentSubmitHandler}>
                     <div className="row">
+                        <div className="col-lg-6">
+                                <input
+                                    type="text"
+                                    name="username"
+                                    id="username"
+                                    placeholder="Username..."
+                                    value={username}
+                                    onChange={(e) => setUsername(e.target.value)}
+                                />
+                        </div>
                         <div className="col-lg-12">
                             <fieldset>
-                                <textarea name="message" id="message" placeholder="Comment something..."></textarea>
+                                <textarea
+                                    name="message"
+                                    id="message"
+                                    placeholder="Comment something..."
+                                    value={comment}
+                                    onChange={(e) => setComment(e.target.value)}
+                                >
+                                </textarea>
                             </fieldset>
                         </div>
                         <div className="col-lg-12">
@@ -79,7 +96,6 @@ export default function GameDetails({
                     </div>
                 </form>
             </div>
-
         </div>
     );
 }

@@ -18,7 +18,6 @@ function Comments() {
                 <span>Username: </span>
                 <p>I think it's beautiful !</p>
             </div>
-
         </>
     );
 }
