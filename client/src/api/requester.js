@@ -2,7 +2,7 @@
 
 // Abstract requester-function
 
-export default async function requester(method, url, data=null) {
+export default async function requester(method, url, data) {
     const options = {};
 
     if (method != 'GET')  {
