@@ -24,10 +24,10 @@ SoftUni React Course Project
 - [x] Preseed practice server (create a new .json in 'data' folder and fill in with data)
 ## 4. Page Implementations
 - [x] Game list (catalogue): GET all games from server
-- [ ] Details
-  - [ ] Details Link
-  - [ ] Details Route
-  - [ ] Api function - getOne (request to server for a particular game)
+- [x] Details
+  - [x] Details Link
+  - [x] Details Route
+  - [x] Api function - getOne (request to server for a particular game)
 - [x] Home - Latest Games
 
 ## 5. Comments (Advanced)
