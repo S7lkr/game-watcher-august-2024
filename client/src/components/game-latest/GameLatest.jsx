@@ -30,7 +30,14 @@ export default function MostPlayed() {
                             <Link to="/game-list">View All</Link>
                         </div>
                     </div>
-                    {games.map(game => <GameLatestItem key={game._id} {...game} />)}
+                    {games.length > 0
+                        ? games.map(game => <GameLatestItem key={game._id} {...game} />)
+                        : (
+                            <div className="section-heading">
+                                <h2 style={{ textAlign: 'center' }}>--No games yet--</h2>
+                            </div>
+                        )
+                    }
                 </div>
             </div>
         </div>
