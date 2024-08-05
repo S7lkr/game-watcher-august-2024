@@ -313,7 +313,7 @@ Header Style
 }
 
 .header-area {
-  /* position: absolute; */
+  position: absolute;
   background-color: transparent;
   top: 40px;
   left: 0;
@@ -671,7 +671,7 @@ Banner Style
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 125px 0px;
+  padding-top: 125px;
 }
 
 .main-banner .caption h6 {
@@ -848,8 +848,9 @@ Trending Style
 
 .trending .item .thumb {
   position: relative;
-  border-radius: 25px;
+  border-radius: 15px;
   overflow: hidden;
+  max-height: 280px;
 }
 
 .trending .item span.price em {
@@ -933,17 +934,18 @@ Most Played Style
 }
 
 .most-played .item  {
-  background-color: #fff;
+  background-color: lightgoldenrodyellow;
   position: relative;
-  border-radius: 25px;
+  border-radius: 10px;
   text-align: center;
   margin-bottom: 40px;
 }
 
 .most-played .item .thumb {
   position: relative;
-  border-radius: 25px;
+  border-radius: 10px;
   overflow: hidden;
+  max-height: 200px;
 }
 
 .most-played .item .down-content {

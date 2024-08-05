@@ -1,54 +1,58 @@
 {
-    "games": {
-        "list": {
-            "f1be5afa-7632-4f1b-b303-7962951c1160": {
-                "title": "Warframe",
-                "category": "Action",
-                "gameType": "Multiplayer/Co-op",
-                "releaseYear": "2013",
-                "maxLevel": "60",
-                "_id": "f1be5afa-7632-4f1b-b303-7962951c1160"
-            },
-            "a0b4a426-80d5-4309-8389-65221f1c2f88": {
-                "title": "PUBG",
-                "category": "Action",
-                "gameType": "Co-op",
-                "releaseYear": "2017",
-                "maxLevel": "20",
-                "_id": "a0b4a426-80d5-4309-8389-65221f1c2f88"
-            },
-            "2470130b-a2d1-4145-a46a-0dbffa9be5bc": {
-                "title": "APEX",
-                "category": "FPS",
-                "gameType": "Multiplayer/Co-op",
-                "releaseYear": "2020",
-                "maxLevel": "75",
-                "_id": "2470130b-a2d1-4145-a46a-0dbffa9be5bc"
-            },
-            "56f88fda-dd05-48c0-b85d-7454d02ec4c4": {
-                "title": "The SIMS 4",
-                "category": "Simulator",
-                "gameType": "Single/Multiplayer",
-                "releaseYear": "2004",
-                "maxLevel": "100",
-                "_id": "56f88fda-dd05-48c0-b85d-7454d02ec4c4"
-            },
-            "82bae2d3-4ccc-4161-821e-70417216d04f": {
-                "title": "Lost Ark",
-                "category": "RPG",
-                "gameType": "Single",
-                "releaseYear": "2010",
-                "maxLevel": "40",
-                "_id": "82bae2d3-4ccc-4161-821e-70417216d04f"
-            },
-            "468f9e58-59b0-4fd5-a517-40e4e7c27a4c": {
-                "title": "Destiny",
-                "category": "Shooter",
-                "gameType": "Single/Multiplayer",
-                "releaseYear": "2023",
-                "maxLevel": "80",
-                "_id": "468f9e58-59b0-4fd5-a517-40e4e7c27a4c"
-            }
+    "list": {
+        "f1be5afa-7632-4f1b-b303-7962951c1160": {
+            "title": "Warframe",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/bd/Warframe_Cover_Art.png",
+            "category": "Action",
+            "gameType": "Multiplayer/Co-op",
+            "releaseYear": "2013",
+            "maxLevel": "60",
+            "_id": "f1be5afa-7632-4f1b-b303-7962951c1160"
+        },
+        "a0b4a426-80d5-4309-8389-65221f1c2f88": {
+            "title": "PUBG",
+            "imageUrl": "https://sm.ign.com/ign_fr/cover/p/pubg-battl/pubg-battlegrounds_fbdz.jpg",
+            "category": "Action",
+            "gameType": "Co-op",
+            "releaseYear": "2017",
+            "maxLevel": "20",
+            "_id": "a0b4a426-80d5-4309-8389-65221f1c2f88"
+        },
+        "2470130b-a2d1-4145-a46a-0dbffa9be5bc": {
+            "title": "APEX",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/d/db/Apex_legends_cover.jpg",
+            "category": "FPS",
+            "gameType": "Multiplayer/Co-op",
+            "releaseYear": "2020",
+            "maxLevel": "75",
+            "_id": "2470130b-a2d1-4145-a46a-0dbffa9be5bc"
+        },
+        "56f88fda-dd05-48c0-b85d-7454d02ec4c4": {
+            "title": "The SIMS 4",
+            "imageUrl": "https://upload.wikimedia.org/wikipedia/en/7/7f/Sims4_Rebrand.png",
+            "category": "Simulator",
+            "gameType": "Single/Multiplayer",
+            "releaseYear": "2004",
+            "maxLevel": "100",
+            "_id": "56f88fda-dd05-48c0-b85d-7454d02ec4c4"
+        },
+        "82bae2d3-4ccc-4161-821e-70417216d04f": {
+            "title": "Lost Ark",
+            "imageUrl": "https://gameguru.ru/media/cache/5c/00/5c009e11eac7adacb9a76ab6b0abe8bd.jpg",
+            "category": "RPG",
+            "gameType": "Single",
+            "releaseYear": "2010",
+            "maxLevel": "40",
+            "_id": "82bae2d3-4ccc-4161-821e-70417216d04f"
+        },
+        "468f9e58-59b0-4fd5-a517-40e4e7c27a4c": {
+            "title": "Destiny 2",
+            "imageUrl": "https://assets-prd.ignimgs.com/2023/11/28/destiny2witch-1701193340502.jpg",
+            "category": "Shooter",
+            "gameType": "Single/Multiplayer",
+            "releaseYear": "2023",
+            "maxLevel": "80",
+            "_id": "468f9e58-59b0-4fd5-a517-40e4e7c27a4c"
         }
     },
     "details": {}
