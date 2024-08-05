@@ -1520,7 +1520,8 @@ Single Page Style
 	margin-right: 5px;
 }
 
-.single-product ul {
+.single-product .container .row ul {
+	max-width: 100%;
 	margin-top: 60px;
 	padding-left: 0;
 }
@@ -1530,6 +1531,10 @@ Single Page Style
 	margin: 20px 0px;
 	font-size: 14px;
 	color: #0071f8;
+}
+
+.single-product ul li p {
+	font-size: 1.3em;
 }
 
 .single-product ul li:last-child {
