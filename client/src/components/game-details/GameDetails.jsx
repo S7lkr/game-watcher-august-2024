@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 
 import gamesAPI from "../../api/games-api";
 import Comments from "../comments/Comments";
+import commentsAPI from "../../api/comments-api";
 
 export default function GameDetails() {
     const [game, setGame] = useState({});
@@ -18,11 +19,12 @@ export default function GameDetails() {
         })();
     }, []);
 
-    const commentSubmitHandler = (e) => {
+    const commentSubmitHandler = async (e) => {
         e.preventDefault();
         console.log(username);
         console.log(comment);
         console.log('Form submitted');
+        commentsAPI.create(gameId, username, comment);
     }
 
     return (
