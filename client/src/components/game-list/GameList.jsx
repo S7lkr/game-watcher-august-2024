@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { request } from "../../api/requester";
 import GameListItem from "./game-list-item/GameListItem";
+import * as gamesAPI from "../../api/games-api";
 
 export default function GameList() {
-    const GAMES_URL = 'http://localhost:3030/jsonstore/games/list';
     const [games, setGames] = useState([]);
 
     useEffect(() => {
-        (async () => {
-            const response = await request.get(GAMES_URL);
-            const result = Object.values(response);
-            setGames(result);
-        })();
+        gamesAPI.getAll()
+            .then(games => setGames(Object.values(games)));
+            // const response = await request.get(GAMES_URL);
+            // const result = Object.values(response);
+            // setGames(result);
     }, []);
 
     return (
