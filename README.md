@@ -19,8 +19,8 @@ SoftUni React Course Project
 
 ## 3. Create Service Layer
 - [x] Abstract requester (create universal fetch-er)
-- [ ] Service layer architecture
-- [ ] Add games api
+- [x] Service layer architecture
+- [x] Add games api
 - [x] Preseed practice server (create a new .json in 'data' folder and fill in with data)
 ## 4. Page Implementations
 - [x] Game list (catalogue): GET all games from server
@@ -28,7 +28,7 @@ SoftUni React Course Project
   - [ ] Details Link
   - [ ] Details Route
   - [ ] Api function - getOne (request to server for a particular game)
-- [ ] Home - Latest Games
+- [x] Home - Latest Games
 
 ## 5. Comments (Advanced)
 - [ ] Create service for nested resource 'comments'

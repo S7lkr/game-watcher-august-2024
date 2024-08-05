@@ -16,7 +16,7 @@ export default function GameListItem({
                 <div className="down-content" >
                     <span className="category">{category}</span>
                     <h4>{title}</h4>
-                    <Link to={`/game-list/${gameId}/details`}>Details</Link>
+                    <Link to={`/game-list/${_id}/details`}>Details</Link>
                 </div>
             </div>
         </div>
