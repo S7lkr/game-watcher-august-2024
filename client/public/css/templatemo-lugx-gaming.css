@@ -1449,6 +1449,7 @@ Single Page Style
 .single-product .container {
 	background-color:#000;
 	border-radius: 15px;
+	padding-bottom: 3em;
 }
 
 .single-product .sep {
@@ -1494,25 +1495,30 @@ Single Page Style
 	margin-right: 15px;
 }
 
-.single-product .buttons {
+.single-product .details {
 	display: flex;
-	justify-content: flex-end;
-	column-gap: 1em;
+	justify-content: center;
+	column-gap: 5em;
 	margin-top: 3em;
+}
+
+.single-product .details button i {
+	padding: 5px;
+	color: #000;
 }
 
 .single-product button {
 	display: inline-block;
-	height: 50px;
-	line-height: 50px;
+	height: 45px;
+	line-height: 30px;
 	background-color: #ee626b;
 	color: #fff;
-	font-size: 15px;
+	font-size: 20px;
 	text-transform: uppercase;
 	font-weight: 500;
-	padding: 0px 25px;
+	padding: 0px 17px;
 	border: none;
-	border-radius: 25px;
+	border-radius: 10px;
 	transition: all .3s;
 }
 
@@ -1593,12 +1599,57 @@ Single Page Style
 	margin-top: 32px;
 }
 
+#comments-section {
+	background-color: #000;
+	padding: 1em;
+	border-radius: 20px;
+	max-width: 1320px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 1em;
+	margin: 4em auto;
+}
+
+#comments-section h5 {
+	color: #d7d7d7;
+}
+
+.com-container {
+	border: 2px solid lightslategrey;
+	flex: 0 0 auto;
+	border-radius: 20px;
+	padding: 10px;
+}
+
+.single-product h2, h4, h5 {
+	color: #d7d7d7;
+	text-align: center;
+}
+
+#add-comment-section {
+	background-color: #000;
+	max-width: 900px;
+	margin: 3em auto;
+	padding: 1em;
+	border-radius: 20px;
+}
+
 
 /* 
 ---------------------------------------------
 Contact PAge Style
 --------------------------------------------- 
 */
+
+#contact-form  {
+	margin-top: 1em;
+	text-align: center;
+}
+
+#contact-form  fieldset textarea {
+	min-width: 700px;
+	min-height: 120px;
+}
 
 .contact-page .left-text {
 	background-color: #f7f7f7;
