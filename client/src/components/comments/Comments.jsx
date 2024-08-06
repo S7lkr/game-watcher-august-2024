@@ -3,12 +3,10 @@ function Comments({
     text,
 }) {
     return (
-        <>
-            <div className='com-container'>
-                <span>{username}:</span>
-                <p>{text}</p>
-            </div>
-        </>
+        <div className='com-container'>
+            <span>{username}:</span>
+            <p>{text}</p>
+        </div>
     );
 }
 

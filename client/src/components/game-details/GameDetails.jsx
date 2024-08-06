@@ -17,11 +17,26 @@ export default function GameDetails() {
             const response = await gamesAPI.getOne(gameId);
             setGame(response);
         })();
-    }, []);
+    }, []);     // <--[comment]  (Method 2) 
 
     const commentSubmitHandler = async (e) => {
         e.preventDefault();
-        commentsAPI.create(gameId, username, comment);
+        const newComment = await commentsAPI.create(gameId, username, comment);
+        // SHOW NEW COMMENT IN GAMEDETAILS AFTER POST ON SERVER:
+        // Method 1: use the state --> comment + newComment
+        setGame(oldState => ({
+            ...oldState,
+            comments: {
+                ...oldState.comments,
+                [newComment._id]: newComment,
+            }
+        }));
+
+        // // Method 2: Prefetch gameData on comments change :)
+        // const fetchComments = await commentsAPI.getAll(gameId);
+        // setComment(Object.values(fetchComments));
+        setUsername('');
+        setComment('');     // clean up both inputs
     }
 
     return (
@@ -55,8 +70,10 @@ export default function GameDetails() {
 
             <section id="comments-section">
                 <h4>Comments:</h4>
-                {game.comments && Object.values(game.comments).map(comment => <Comments key={comment._id} {...comment}/>)}
-                {/* <h5>--No comments yet--</h5> */}
+                {Object.keys(game.comments || {}).length > 0
+                    ? Object.values(game.comments).map(comment => <Comments key={comment._id} {...comment}/>)
+                    : <h5>--No comments yet--</h5>
+                }
             </section>
 
             <div id="add-comment-section">
