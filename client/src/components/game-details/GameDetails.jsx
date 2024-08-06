@@ -21,6 +21,9 @@ export default function GameDetails() {
 
     const commentSubmitHandler = async (e) => {
         e.preventDefault();
+        if (username == '' || comment == '') {
+            return;
+        }
         const newComment = await commentsAPI.create(gameId, username, comment);
         // SHOW NEW COMMENT IN GAMEDETAILS AFTER POST ON SERVER:
         // Method 1: use the state --> comment + newComment
