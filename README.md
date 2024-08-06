@@ -39,9 +39,9 @@ SoftUni React Course Project
 - [x] Clear form
   
 ## 6. API Hooks
-- [ ] Form Hook
-- [ ] GameAPI Hooks
-- [ ] Comment Hooks
+- [x] Form Hook
+- [x] GameAPI Hooks
+- [x] Comment Hooks
 
 ## 7. Authentication (user access to components & functionalities)
 - [ ] Auth API
