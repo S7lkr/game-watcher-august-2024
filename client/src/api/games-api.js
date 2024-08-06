@@ -1,4 +1,4 @@
-// Here we'll implement 'requester.js's functionalities:
+// It uses 'requester.js's functionalities -> get, post, put, del
 import { request } from "./requester";
 
 const BASE_URL = 'http://localhost:3030/jsonstore/games';

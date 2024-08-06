@@ -1,23 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router";
-
-import gamesAPI from "../../api/games-api";
+import { useGetOneGames } from "../../hooks/useGames";
 import Comments from "../comments/Comments";
 import commentsAPI from "../../api/comments-api";
 
 export default function GameDetails() {
-    const [game, setGame] = useState({});
+    const { gameId } = useParams();
+    const [game, setGame] = useGetOneGames(gameId);
     const [username, setUsername] = useState('');
     const [comment, setComment] = useState('');
-    const { gameId } = useParams();
-
-    // make request to fetch the game by _id
-    useEffect(() => {
-        (async () => {
-            const response = await gamesAPI.getOne(gameId);
-            setGame(response);
-        })();
-    }, []);     // <--[comment]  (Method 2) 
 
     const commentSubmitHandler = async (e) => {
         e.preventDefault();
@@ -25,7 +16,9 @@ export default function GameDetails() {
             return;
         }
         const newComment = await commentsAPI.create(gameId, username, comment);
+        
         // SHOW NEW COMMENT IN GAMEDETAILS AFTER POST ON SERVER:
+
         // Method 1: use the state --> comment + newComment
         setGame(oldState => ({
             ...oldState,
@@ -35,9 +28,11 @@ export default function GameDetails() {
             }
         }));
 
-        // // Method 2: Prefetch gameData on comments change :)
+        // // Method 2: Prefetch gameData on 'comment' state change :)
         // const fetchComments = await commentsAPI.getAll(gameId);
         // setComment(Object.values(fetchComments));
+        // 'comment' should be send as parameter to useGetOneGames(gameId,>>comment<<)
+        // and placed in dependancy array [] of useEffect in order to invoke it again (prefetch)
         setUsername('');
         setComment('');     // clean up both inputs
     }

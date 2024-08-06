@@ -1,7 +1,5 @@
 
-
 // Abstract requester-function
-
 export default async function requester(method, url, data) {
     const options = {};
 

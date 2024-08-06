@@ -15,6 +15,7 @@ function App() {
             <NavBar />
             <Routes>
                 <Route path='/' element={<Home />} />
+                {/* <Route path='/game-create' element={<CreateGame />} /> */}
                 <Route path='/game-list' element={<GameList />} />
                 <Route path='/game-list/:gameId/details' element={<GameDetails />} />
                 <Route path='/about' element={<About />} />

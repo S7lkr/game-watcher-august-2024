@@ -1,15 +1,8 @@
-import { useEffect, useState } from "react";
 import GameListItem from "./game-list-item/GameListItem";
-import gamesAPI from "../../api/games-api";
+import { useGetAllGames } from "../../hooks/useGames";
 
 export default function GameList() {
-    const [games, setGames] = useState([]);
-
-    useEffect(() => {
-        gamesAPI.getAll()
-            .then(games => setGames(games));
-    }, []);
-
+    const [games] = useGetAllGames();   // this state uses the custom hook 'useGetAllGames' from 'useGames.js'
     return (
         <div className="section most-played">
             <div className="container">
@@ -21,16 +14,16 @@ export default function GameList() {
                         </div>
                     </div>
                     <div className="col-lg-6">
-                        {/* <div className="main-button">
+                        <div className="main-button">
                             <a href="shop.html">View All</a>
-                        </div> */}
+                        </div>
                     </div>
                     {games.length > 0
                         ? games.map(game => <GameListItem key={game._id} {...game} />)
                         : (
-                        <div className="section-heading">
-                            <h2 style={{ textAlign: 'center' }}>--No games yet--</h2>
-                        </div>
+                            <div className="section-heading">
+                                <h2 style={{ textAlign: 'center' }}>--No games yet--</h2>
+                            </div>
                         )
                     }
                 </div>

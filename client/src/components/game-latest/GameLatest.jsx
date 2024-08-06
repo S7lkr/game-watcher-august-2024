@@ -1,17 +1,18 @@
 import { useState, useEffect } from "react";
-import { request } from "../../api/requester";
 import { Link } from "react-router-dom";
+// import { request } from "../../api/requester";
+import gamesAPI from "../../api/games-api";
 import GameLatestItem from "./game-latest-item/GameLatestItem";
 
 export default function MostPlayed() {
-    const GAMES_URL = 'http://localhost:3030/jsonstore/games/list';
     const [games, setGames] = useState([]);
 
     useEffect(() => {
         (async () => {
-            const response = await request.get(GAMES_URL);
-            const result = Object.values(response).reverse().slice(0, 4);
-            setGames(result);
+            // TODO: Modify to fetch only latest games
+            const response = await gamesAPI.getAll();
+            const games = Object.values(response).reverse().slice(0, 4);    // take only LAST 4 games (newest)
+            setGames(games);
         })();
     }, []);
 

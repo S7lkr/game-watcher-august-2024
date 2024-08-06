@@ -22,6 +22,7 @@ SoftUni React Course Project
 - [x] Service layer architecture
 - [x] Add games api
 - [x] Preseed practice server (create a new .json in 'data' folder and fill in with data)
+
 ## 4. Page Implementations
 - [x] Game list (catalogue): GET all games from server
 - [x] Details
@@ -36,3 +37,24 @@ SoftUni React Course Project
 - [x] Read comments from server
 - [x] Add comments in the component
 - [x] Clear form
+  
+## 6. API Hooks
+- [ ] Form Hook
+- [ ] GameAPI Hooks
+- [ ] Comment Hooks
+
+## 7. Authentication (user access to components & functionalities)
+- [ ] Auth API
+- [ ] Auth API Hook
+- [ ] Auth state & context
+- [ ] Login (SignIn)
+- [ ] Register (SignUp)
+- [ ] Logout
+
+## 8. UI Implementation
+- [ ] Dynamic Navigation
+- [ ] Crate game
+  - [ ] Create component
+  - [ ] API function
+  - [ ] Hook
+- [ ] Latest Games -> use custom hook!
