@@ -18,7 +18,7 @@ export default function NavBar() {
                                 <li><NavLink to="/about" style={({isActive}) => isActive ? {fontWeight: 'bold'} : {}}>About</NavLink></li>
                                 <li>|</li>
                                 <li><NavLink to="/login" style={({isActive}) => isActive ? {fontWeight: 'bold'} : {}}>Log in</NavLink></li>
-                                <li><NavLink to="/sign-up" style={({isActive}) => isActive ? {fontWeight: 'bold'} : {}}>Sign Up</NavLink></li>
+                                <li><NavLink to="/register" style={({isActive}) => isActive ? {fontWeight: 'bold'} : {}}>Sign Up</NavLink></li>
                             </ul>
                             <a className='menu-trigger'>
                                 <span>Menu</span>
