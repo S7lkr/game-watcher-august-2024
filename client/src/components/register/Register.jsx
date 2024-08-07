@@ -13,26 +13,26 @@ const initialValues = { email: '', password: '' };
 export default function Register() {
     const register = useRegister();
     const navigate = useNavigate();
-    const [status, setStatus] = useState('');
+    const [error, setError] = useState('');
 
-    const registerHandler = async ({ email, password, rePassword }) => {        
+    const registerHandler = async ({ email, password, password2 }) => {        
         if (
             email == '' ||
             password == '' ||
-            rePassword == ''
+            password2 == ''
         ) {
-            return setStatus('Empty fields left!');
+            return setError('Empty fields left!');
         }
 
-        if (password !== rePassword) {
-            return setStatus('Password doesn\'t match!');           
+        if (password !== password2) {
+            return setError('Password doesn\'t match!');       
         };
 
         try {
-            await register(email, password, rePassword);
+            await register(email, password);
             navigate('/');
         } catch (err) {
-            console.log(err.message);
+            setError(err.message);      // place the error in the state (show it in registration-form)
         }
     };
 
@@ -75,18 +75,18 @@ export default function Register() {
                     <Form.Label className='text-field'>Confirm Password</Form.Label>
                     <Form.Control
                         type="password"
-                        name="repassword"
-                        controlid="repassword"
+                        name="password2"
+                        controlid="re-password"
                         placeholder="Repeat password"
                         autoComplete='on'
-                        value={values.rePassword}
+                        value={values.password2 || ''}
                         onChange={changeHandler}
                     />
                 </Form.Group>
-                {status &&
+                {error &&
                     (
                         <Form.Text className="text-small-message">
-                            {status}
+                            {error}
                         </Form.Text>
                     )
                 }
