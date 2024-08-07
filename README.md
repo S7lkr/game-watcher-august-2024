@@ -53,8 +53,10 @@ SoftUni React Course Project
   - [x] Register
   - [ ] Logout
 - [x] Auth state & context
-- [ ] Token management
-- [x] Login (SignIn)
+- [x] Token management
+- [x] Login
+- [x] Register
+  - [x] Add register validation
 - [ ] Logout
 - [ ] Authorized Requests
 

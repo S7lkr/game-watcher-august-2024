@@ -22,7 +22,7 @@ export const useLogin = () => {
 export const useRegister = () => {
     const {changeAuthState} = useContext(AuthContext);    // get AuthContext data from app
     const registerHandler = async (email, password) => {
-        const authData = await register(email, password);
+        const {password: _, ...authData} = await register(email, password);
         changeAuthState(authData);
         return authData;
     }
