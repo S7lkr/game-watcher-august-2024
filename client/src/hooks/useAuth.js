@@ -12,9 +12,9 @@ export const useLogin = () => {
     const { changeAuthState } = useContext(AuthContext);    // get AuthContext data from app
 
     const loginHandler = async (email, password) => {       // POST request with email & password
-        const loginData = await login(email, password);
-        changeAuthState(loginData);             // save response into state
-        return loginData;
+        const authData = await login(email, password);
+        changeAuthState(authData);             // save response into state
+        return authData;
     }
     return loginHandler;        // return POST fetcher
 }
@@ -22,9 +22,9 @@ export const useLogin = () => {
 export const useRegister = () => {
     const {changeAuthState} = useContext(AuthContext);    // get AuthContext data from app
     const registerHandler = async (email, password) => {
-        const registerData = await register(email, password);
-        changeAuthState(registerData);
-        return registerData;
+        const authData = await register(email, password);
+        changeAuthState(authData);
+        return authData;
     }
     return registerHandler;
 }
