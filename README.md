@@ -58,11 +58,11 @@ SoftUni React Course Project
 - [x] Register
   - [x] Add register validation
 - [ ] Logout
-- [ ] Authorized Requests
+- [x] Authorized Requests
 
 ## 8. UI Implementation
 - [ ] Dynamic Navigation
-- [ ] Crate game
+- [ ] Create game
   - [ ] Create component
   - [ ] API function
   - [ ] Hook

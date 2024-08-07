@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export default function NavBar() {
-    const active = ({isActive}) => isActive ? {fontWeight: 'bold'} : {};        // active link css
+    const activeLink = ({ isActive }) => isActive ? { fontWeight: 'bold' } : {};        // active link css
+    const { username, isAuthenticated } = useContext(AuthContext);
     return (
         <header className="header-area header-sticky">
             <div className="container">
@@ -14,12 +17,29 @@ export default function NavBar() {
                             </Link>
 
                             <ul className="nav">
-                                <li><NavLink to="/" style={active}>Home</NavLink></li>
-                                <li><NavLink to="/game-list" style={active}>All Games</NavLink></li>
-                                <li><NavLink to="/about" style={active}>About</NavLink></li>
-                                <li>|</li>
-                                <li><NavLink to="/login" style={active}>Log in</NavLink></li>
-                                <li><NavLink to="/register" style={active}>Sign Up</NavLink></li>
+                                <li><NavLink to="/" style={activeLink}>Home</NavLink></li>
+                                <li><NavLink to="/about" style={activeLink}>About</NavLink></li>
+                                <li><NavLink to="/game-list" style={activeLink}>All Games</NavLink></li>
+                                {isAuthenticated
+                                    ?
+                                    (
+                                        <>
+                                            <li><NavLink to="/create-game" style={activeLink}>Create Game</NavLink></li>
+                                            <li>|</li>
+                                            <li><i className="fa-regular fa-user">{username}</i></li>
+                                            <li><NavLink to="/logout" style={activeLink}>LogOut</NavLink></li>
+                                        </>
+                                    )
+                                    :
+                                    (
+                                        <>
+                                            <li>|</li>
+                                            <li><NavLink to="/login" style={activeLink}>Login</NavLink></li>
+                                            <li><NavLink to="/register" style={activeLink}>Register</NavLink></li>
+                                        </>
+                                    )
+                                }
+
                             </ul>
                             <a className='menu-trigger'>
                                 <span>Menu</span>

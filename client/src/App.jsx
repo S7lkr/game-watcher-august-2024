@@ -20,6 +20,7 @@ function App() {
     const contextData = {
         userId: authState._id,
         email: authState.email,
+        username: authState.username,
         accessToken: authState.accessToken,
         isAuthenticated: !!authState.email,     // if falsy -> false, if truty -> true
         changeAuthState,
@@ -31,10 +32,11 @@ function App() {
             <NavBar />
             <Routes>
                 <Route path='/' element={<Home />} />
-                {/* <Route path='/game-create' element={<CreateGame />} /> */}
+                <Route path='/about' element={<About />} />
+                {/* TODO: About subroutes */}
                 <Route path='/game-list' element={<GameList />} />
                 <Route path='/game-list/:gameId/details' element={<GameDetails />} />
-                <Route path='/about' element={<About />} />
+                {/* <Route path='/game-create' element={<CreateGame />} /> */}
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
             </Routes>

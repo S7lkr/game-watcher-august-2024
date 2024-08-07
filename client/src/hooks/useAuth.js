@@ -12,8 +12,10 @@ export const useLogin = () => {
     const { changeAuthState } = useContext(AuthContext);    // get AuthContext data from app
 
     const loginHandler = async (email, password) => {       // POST request with email & password
-        const authData = await login(email, password);
+        const {password: _, ...authData} = await login(email, password);    // get data without password (isolate it)
         changeAuthState(authData);             // save response into state
+        console.log(authData);
+        
         return authData;
     }
     return loginHandler;        // return POST fetcher
@@ -22,7 +24,7 @@ export const useLogin = () => {
 export const useRegister = () => {
     const {changeAuthState} = useContext(AuthContext);    // get AuthContext data from app
     const registerHandler = async (email, password) => {
-        const {password: _, ...authData} = await register(email, password);
+        const {password: _, ...authData} = await register(email, password);     // get data without password (isolate it)
         changeAuthState(authData);
         return authData;
     }
