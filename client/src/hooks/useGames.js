@@ -19,7 +19,7 @@ export function useGetOneGames(gameId) {
             const response = await gamesAPI.getOne(gameId);
             setGame(response);
         })();
-    }, []);     // <--[comment]  (Method 2)
+    }, []);
     return [game, setGame];
 }
 
