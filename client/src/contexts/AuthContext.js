@@ -1,6 +1,8 @@
-import { useContext } from "react";
+import { createContext } from "react";
 
-export const AuthContext = useContext({     // default values
+
+// Here we CREATE a new CONTEXT (to be shared between all components)
+export const AuthContext = createContext({     // default values
     userId: '',
     email: '',
     accessToken: '',

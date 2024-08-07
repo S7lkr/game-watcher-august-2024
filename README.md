@@ -52,7 +52,7 @@ SoftUni React Course Project
   - [x] Login
   - [ ] Register
   - [ ] Logout
-- [ ] Auth state & context
+- [x] Auth state & context
 - [ ] Token management
 - [x] Login (SignIn)
 - [ ] Register (SignUp)
