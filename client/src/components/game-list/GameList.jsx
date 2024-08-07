@@ -1,8 +1,10 @@
 import GameListItem from "./game-list-item/GameListItem";
 import { useGetAllGames } from "../../hooks/useGames";
+import { useEffect, useState } from "react";
 
 export default function GameList() {
     const [games] = useGetAllGames();   // this state uses the custom hook 'useGetAllGames' from 'useGames.js'
+
     return (
         <div className="section most-played">
             <div className="container">
@@ -15,7 +17,7 @@ export default function GameList() {
                     </div>
                     <div className="col-lg-6">
                         <div className="main-button">
-                            <a href="shop.html">View All</a>
+                            <button>Refresh Games</button>
                         </div>
                     </div>
                     {games.length > 0
