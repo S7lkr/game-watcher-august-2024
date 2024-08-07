@@ -15,6 +15,8 @@ export function useForm(initialValues, submitCallback) {
             ...prevState,
             [e.target.name]: e.target.value,
         }));
+        // console.log(`${e.target.name} -> ${e.target.value}`);
+        // console.log(values);
     }
 
     const submitHandler = (e) => {

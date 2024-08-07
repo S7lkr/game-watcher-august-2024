@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useRegister } from '../../hooks/useAuth';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useForm } from '../../hooks/useForm';
 
 const initialValues = { email: '', password: '' };
@@ -13,10 +13,23 @@ const initialValues = { email: '', password: '' };
 export default function Register() {
     const register = useRegister();
     const navigate = useNavigate();
+    const [status, setStatus] = useState('');
 
-    const registerHandler = async ({ email, password }) => {
+    const registerHandler = async ({ email, password, rePassword }) => {        
+        if (
+            email == '' ||
+            password == '' ||
+            rePassword == ''
+        ) {
+            return setStatus('Empty fields left!');
+        }
+
+        if (password !== rePassword) {
+            return setStatus('Password doesn\'t match!');           
+        };
+
         try {
-            await register(email, password);
+            await register(email, password, rePassword);
             navigate('/');
         } catch (err) {
             console.log(err.message);
@@ -59,20 +72,27 @@ export default function Register() {
                     />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formRepeatPassword">
-                    <Form.Label className='text-field'>Repeat Password</Form.Label>
+                    <Form.Label className='text-field'>Confirm Password</Form.Label>
                     <Form.Control
                         type="password"
-                        name="re-password"
-                        controlid="re-password"
+                        name="repassword"
+                        controlid="repassword"
                         placeholder="Repeat password"
                         autoComplete='on'
                         value={values.rePassword}
                         onChange={changeHandler}
                     />
                 </Form.Group>
-                {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label="Check me out" />
-                        </Form.Group> */}
+                {status &&
+                    (
+                        <Form.Text className="text-small-message">
+                            {status}
+                        </Form.Text>
+                    )
+                }
+                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                    <Form.Check type="checkbox" label="Check me out" />
+                </Form.Group>
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>

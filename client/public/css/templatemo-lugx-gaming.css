@@ -1770,13 +1770,23 @@ Login Page Style
 	margin-bottom: 1.5em;
 }
 
-.login-form div.mb-3 > small.text-small {
+
+.login-form small.text-small {
 	color: lightgreen;
+}
+
+.login-form small.text-small-message {
+	color: lightcoral;
 }
 
 .text-field {
 	color: lightgoldenrodyellow;
 }
+
+.form-check {
+	margin-top: 1em;
+}
+
 /* 
 ---------------------------------------------
 Responsive Style

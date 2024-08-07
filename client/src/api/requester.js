@@ -11,7 +11,7 @@
 export default async function requester(method, url, data) {
     const options = {};
 
-    if (method != 'GET')  {
+    if (method != 'GET') {
         options.method = method;
     }
     if (data) {
@@ -20,10 +20,18 @@ export default async function requester(method, url, data) {
         };
         options.body = JSON.stringify(data);
     }
-    const response = await fetch(url, options);
-    const result = response.json();     // turn the Promise into .json (object)
+    try {
+        const response = await fetch(url, options);
+        const result = await response.json();     // turn the Promise into .json (object)
 
-    return result;  // as Promise
+        if (!response.ok) {
+            console.log(result);
+            throw result;
+        }
+        return result;  // as Promise
+    } catch(err) {
+        console.log(err.message);
+    };
 }
 
 export const request = {
