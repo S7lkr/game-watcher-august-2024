@@ -1,6 +1,5 @@
 import GameListItem from "./game-list-item/GameListItem";
 import { useGetAllGames } from "../../hooks/useGames";
-import { useEffect, useState } from "react";
 
 export default function GameList() {
     const [games] = useGetAllGames();   // this state uses the custom hook 'useGetAllGames' from 'useGames.js'

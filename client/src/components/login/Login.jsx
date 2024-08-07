@@ -4,17 +4,14 @@ import { useForm } from '../../hooks/useForm';
 import { useLogin } from '../../hooks/useAuth';
 import { useNavigate } from "react-router-dom";
 
-const initialValues = {
-    email: '',
-    password: '',
-}
+const initialValues = { email: '', password: '' }
 
 function Login() {
     const login = useLogin();
     const navigate = useNavigate();
-    
+
     // callback func (it is sending the login data to server)
-    const loginHandler = async ({ email, password }) => {
+    const loginFetcher = async ({ email, password }) => {
         try {
             await login(email, password);
             navigate('/');
@@ -23,7 +20,7 @@ function Login() {
         }
     };
 
-    const { values, changeHandler, submitHandler } = useForm(initialValues, loginHandler);
+    const { values, changeHandler, submitHandler } = useForm(initialValues, loginFetcher);
 
     return (
         <div className='login-container'>
@@ -37,9 +34,9 @@ function Login() {
                         type="email"
                         name="email"
                         placeholder="Enter email"
+                        autoComplete='on'
                         value={values.email}
                         onChange={changeHandler}
-                    // inputMode="true"
                     />
                     <Form.Text className="text-small">
                         We'll never share your email with anyone else.
@@ -52,20 +49,19 @@ function Login() {
                         type="password"
                         name="password"
                         placeholder="Password"
+                        autoComplete='on'
                         value={values.password}
                         onChange={changeHandler}
-                    // inputMode="true"
                     />
                 </Form.Group>
                 {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Check me out" />
-            </Form.Group> */}
+                    <Form.Check type="checkbox" label="Check me out" />
+                </Form.Group> */}
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
             </Form>
         </div>
-
     );
 }
 

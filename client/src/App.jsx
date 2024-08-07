@@ -1,4 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from "react-router-dom";
 
 import NavBar from "./components/nav-bar/NavBar";
@@ -8,25 +7,11 @@ import About from './components/about/About';
 import Login from './components/login/Login';
 import SignUp from './components/sign-up/SignUp';
 import GameDetails from './components/game-details/GameDetails';
-import { useState } from 'react';
-import { AuthContext } from './contexts/AuthContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-    // TODO: remove this from app
-    const [authState, setAuthState] = useState({});
-    const changeAuthState = (state) => {    // wrap func
-        setAuthState(state);
-    }
-    const contextData = {
-        userId: authState._id,
-        email: authState.email,
-        accessToken: authState.accessToken,
-        // if truthy value -> true, if falsy (false, 0, -0, 0n, "", null, undefined, NaN, document.all) -> false
-        isAuthenticated: !!authState.email,
-        changeAuthState,
-    }
     return (
-        <AuthContext.Provider value={contextData}>
+        <>
             <NavBar />
             <Routes>
                 <Route path='/' element={<Home />} />
@@ -37,7 +22,7 @@ function App() {
                 <Route path='/login' element={<Login />} />
                 <Route path='/sign-up' element={<SignUp />} />
             </Routes>
-        </AuthContext.Provider>
+        </>
     );
 }
 
