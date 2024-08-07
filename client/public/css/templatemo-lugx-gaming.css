@@ -234,7 +234,7 @@ body {
 	font-weight: 700;
 }
 
-.main-button a {
+.main-button button {
 	display: inline-block;
 	background-color: #ee626b;
 	text-transform: uppercase;
@@ -248,7 +248,7 @@ body {
 	transition: all .3s;
 }
 
-.main-button a:hover {
+.main-button button:hover {
 	background-color: #0071f8;
 	color: #fff;
 }
@@ -412,6 +412,7 @@ Header Style
 	-o-transition: all 0.3s ease 0s;
 	transition: all 0.3s ease 0s;
 	display: inline-block;
+	padding-left: 15px;
 }
 
 .header-area .main-nav .logo h1 {
