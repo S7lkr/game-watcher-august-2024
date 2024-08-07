@@ -9,13 +9,12 @@ export default function Banner() {
                             <h2>BEST GAMING SITE EVER!</h2>
                             <p>In GameWatcher Gaming Website you will find AWESOME games
                                 from all genre and type to ENJOY in your free time!</p>
-                            {/* <div className="search-input">
+                            <div className="search-input">
                             <form id="search" action="#">
-                                <input type="text" placeholder="Type Something" id='searchText' name="searchKeyword"
-                                    onkeypress="handle" />
-                                <button role="button">Search Now</button>
+                                <input type="text" placeholder="Enter game..." id='searchText' name="searchKeyword" />
+                                <button role="button">Search Game</button>
                             </form>
-                        </div> */}
+                        </div>
                         </div>
                     </div>
                     <div className="col-lg-4 offset-lg-2">
