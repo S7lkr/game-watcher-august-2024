@@ -1,11 +1,15 @@
-import { login } from "../api/auth-api";
+import { useContext } from "react";
 
-export const useLogin = () => {
-    const loginHandler = async (email, password) => {
-            const loginData = await login(email, password);     // use 'login' from 'auth-api.js'
-            console.log(loginData);
-            
-            // TODO: update app state
+import { login } from "../api/auth-api";
+import { AuthContext } from "../contexts/AuthContext";
+
+export const useLogin = () => {     // custom hook -> between Login(comp) and auth-api(service)
+    const { changeAuthState } = useContext(AuthContext);
+    const loginFetcher = async (email, password) => {
+        const loginData = await login(email, password);     // use 'login' from 'auth-api.js'
+        changeAuthState(loginData);
+
+        // TODO: update app state
     }
-    return loginHandler;
+    return loginFetcher;
 };
