@@ -6,11 +6,12 @@ import Home from './components/home/Home';
 import GameList from './components/game-list/GameList';
 import About from './components/about/About';
 import Login from './components/login/Login';
-import SignUp from './components/sign-up/SignUp';
+import Register from './components/register/Register';
 import GameDetails from './components/game-details/GameDetails';
 import { AuthContext } from "./contexts/AuthContext";
 
 function App() {
+    // TODO: remove this from app
     const [authState, setAuthState] = useState({});
 
     const changeAuthState = (state) => {     // wrapper func -> to secure 'setAuthState'
@@ -35,7 +36,7 @@ function App() {
                 <Route path='/game-list/:gameId/details' element={<GameDetails />} />
                 <Route path='/about' element={<About />} />
                 <Route path='/login' element={<Login />} />
-                <Route path='/sign-up' element={<SignUp />} />
+                <Route path='/register' element={<Register />} />
             </Routes>
         </AuthContext.Provider>
     );
