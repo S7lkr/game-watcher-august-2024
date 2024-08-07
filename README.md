@@ -44,8 +44,9 @@ SoftUni React Course Project
 - [ ] Comment Hooks
 
 ## 7. Authentication (user access to components & functionalities)
-- [ ] Auth API
-- [ ] Auth API Hook
+- [x] Auth API
+  - [x] Login
+- [x] Auth API Hook
 - [ ] Auth state & context
 - [ ] Login (SignIn)
 - [ ] Register (SignUp)

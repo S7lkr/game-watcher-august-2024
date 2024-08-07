@@ -1,5 +1,13 @@
 
 // Abstract requester-function
+
+/**
+ * 
+ * @param {string} method 
+ * @param {string} url 
+ * @param {object} data 
+ * @returns 
+ */
 export default async function requester(method, url, data) {
     const options = {};
 
@@ -13,7 +21,7 @@ export default async function requester(method, url, data) {
         options.body = JSON.stringify(data);
     }
     const response = await fetch(url, options);
-    const result = response.json();
+    const result = response.json();     // turn the Promise into .json (object)
 
     return result;  // as Promise
 }

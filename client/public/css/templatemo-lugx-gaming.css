@@ -386,7 +386,7 @@ Header Style
 }
 
 .header-area {
-	position: absolute;
+	/* position: absolute; */
 	background-color: transparent;
 	top: 40px;
 	left: 0;
@@ -400,6 +400,9 @@ Header Style
 
 .header-area .main-nav {
 	background: #000;
+	min-height: 60px;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
 	display: flex;
 }
 
@@ -429,6 +432,7 @@ Header Style
 	border-radius: 0px 0px 25px 25px;
 	flex-basis: 100%;
 	margin-top: 10px;
+	padding-right: 0.5em;
 	justify-content: right;
 	-webkit-transition: all 0.3s ease 0s;
 	-moz-transition: all 0.3s ease 0s;
@@ -447,7 +451,7 @@ Header Style
 	/* padding-left: 10px;
   padding-right: 10px; */
 	height: 40px;
-	line-height: 40px;
+	line-height: 30px;
 }
 
 .header-area .main-nav .nav li a {
@@ -458,7 +462,7 @@ Header Style
 	font-weight: 200;
 	font-size: 20px;
 	height: 40px;
-	line-height: 40px;
+	line-height: 35px;
 	text-transform: capitalize;
 	color: #fff;
 	-webkit-transition: all 0.4s ease 0s;
@@ -1742,6 +1746,36 @@ Contact PAge Style
 	background-color: #0071f8;
 }
 
+/* 
+---------------------------------------------
+Login Page Style
+--------------------------------------------- 
+*/
+
+.login-container {
+	max-width: 500px;
+	margin: 15em auto;
+	border-radius: 25px;
+	box-shadow: 0.5em 0.5em 0.7em rgba(235, 235, 235, 0.2);
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.login-form {
+	padding: 2em;
+}
+
+.login-form div > h3 {
+	color: #e7e7e7;
+	margin-bottom: 1.5em;
+}
+
+.login-form div.mb-3 > small.text-small {
+	color: lightgreen;
+}
+
+.text-field {
+	color: lightgoldenrodyellow;
+}
 /* 
 ---------------------------------------------
 Responsive Style
