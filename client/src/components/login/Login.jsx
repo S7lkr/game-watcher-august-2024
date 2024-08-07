@@ -1,8 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
+
 import Form from 'react-bootstrap/Form';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { useForm } from '../../hooks/useForm';
 import { useLogin } from '../../hooks/useAuth';
-import { useNavigate } from "react-router-dom";
 
 const initialValues = { email: '', password: '' }
 
