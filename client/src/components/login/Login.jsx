@@ -4,20 +4,26 @@ import { useForm } from '../../hooks/useForm';
 import { useLogin } from '../../hooks/useAuth';
 import { useNavigate } from "react-router-dom";
 
+const initialValues = {
+    email: '',
+    password: '',
+}
+
 function Login() {
     const login = useLogin();
     const navigate = useNavigate();
-    const { values, changeHandler, submitHandler } = useForm(
-        { email: '', password: '' },    // initial values
-        async ({ email, password }) => {
-            try {
-                await login(email, password);
-                navigate('/');
-            } catch (err) {
-                console.log(err.message);
-            }
-        },    // callback func -> we define it here (inline)
-    );
+    
+    // callback func (it is sending the login data to server)
+    const loginHandler = async ({ email, password }) => {
+        try {
+            await login(email, password);
+            navigate('/');
+        } catch (err) {
+            console.log(err.message);
+        }
+    };
+
+    const { values, changeHandler, submitHandler } = useForm(initialValues, loginHandler);
 
     return (
         <div className='login-container'>
