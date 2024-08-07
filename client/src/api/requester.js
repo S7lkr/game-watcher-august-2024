@@ -20,18 +20,13 @@ export default async function requester(method, url, data) {
         };
         options.body = JSON.stringify(data);
     }
-    try {
-        const response = await fetch(url, options);
-        const result = await response.json();     // turn the Promise into .json (object)
+    const response = await fetch(url, options);
+    const result = await response.json();     // turn the Promise into .json (object)
 
-        if (!response.ok) {
-            console.log(result);
-            throw result;
-        }
-        return result;  // as Promise
-    } catch(err) {
-        console.log(err.message);
-    };
+    if (!response.ok) {
+        throw result;
+    }
+    return result;  // as Promise
 }
 
 export const request = {
