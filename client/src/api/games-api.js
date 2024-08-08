@@ -14,7 +14,7 @@ const getOne = async (gameId) => {
     return response;
 }
 
-export const create = async (gameData) => request.post(`${BASE_URL}/`, gameData);
+export const create = async (gameData) => request.post(`${BASE_URL}`, gameData);
 
 const gamesAPI = {
     getAll,
