@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
+import { AuthContext } from "./contexts/AuthContext";
 import NavBar from "./components/nav-bar/NavBar";
 import Home from './components/home/Home';
 import GameList from './components/game-list/GameList';
@@ -8,7 +9,7 @@ import About from './components/about/About';
 import Login from './components/login/Login';
 import Register from './components/register/Register';
 import GameDetails from './components/game-details/GameDetails';
-import { AuthContext } from "./contexts/AuthContext";
+import GameCreate from "./components/game-create/GameCreate";
 
 function App() {
     // TODO: remove this from app
@@ -36,7 +37,7 @@ function App() {
                 {/* TODO: About subroutes */}
                 <Route path='/game-list' element={<GameList />} />
                 <Route path='/game-list/:gameId/details' element={<GameDetails />} />
-                {/* <Route path='/game-create' element={<CreateGame />} /> */}
+                <Route path='/create-game' element={<GameCreate />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
             </Routes>

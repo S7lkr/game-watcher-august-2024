@@ -258,6 +258,16 @@ body {
 	color: #fff;
 }
 
+#summary fieldset textarea {
+	min-width: 100%;
+	min-height: 120px;
+	border-radius: 7px;
+}
+
+button#create-game {
+	margin-top: 1em;
+}
+
 /* 
 ---------------------------------------------
 Pre-loader Style
