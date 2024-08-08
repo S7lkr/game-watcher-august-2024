@@ -5,31 +5,35 @@ import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useRegister } from '../../hooks/useAuth';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { useForm } from '../../hooks/useForm';
 
-const initialValues = { email: '', password: '' };
+const initialValues = { email: '', username: '', password: '' };
 
 export default function Register() {
     const register = useRegister();
     const navigate = useNavigate();
     const [error, setError] = useState('');
 
-    const registerHandler = async ({ email, password, password2 }) => {        
+    const registerHandler = async ({ email, username, password, password2 }) => {
         if (
             email == '' ||
+            username == '' ||
             password == '' ||
             password2 == ''
         ) {
             return setError('Empty fields left!');
         }
 
+        if (Array.from(username).length < 3) {
+            return setError('Username too short.');
+        }
         if (password !== password2) {
-            return setError('Password doesn\'t match!');       
+            return setError('Password doesn\'t match!');
         };
 
         try {
-            await register(email, password);
+            await register(email, username, password);
             navigate('/');
         } catch (err) {
             setError(err.message);      // place the error in the state (show it in registration-form)
@@ -45,7 +49,7 @@ export default function Register() {
                     <h3>Create new account:</h3>
                 </div>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label className='text-field'>Email address</Form.Label>
+                    <Form.Label className='text-field'>Email address:</Form.Label>
                     <Form.Control
                         type="email"
                         name="email"
@@ -59,8 +63,23 @@ export default function Register() {
                     </Form.Text>
                 </Form.Group>
 
+                <Form.Group className="mb-3" controlId="formBasicUsername">
+                    <Form.Label className='text-field'>Username:</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="username"
+                        placeholder="Enter username"
+                        autoComplete='on'
+                        value={values.username}
+                        onChange={changeHandler}
+                    />
+                    <Form.Text className="text-small">
+                        Username should be at least 3 chararcters long.
+                    </Form.Text>
+                </Form.Group>
+
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label className='text-field'>Password</Form.Label>
+                    <Form.Label className='text-field'>Password:</Form.Label>
                     <Form.Control
                         type="password"
                         name="password"
@@ -71,8 +90,9 @@ export default function Register() {
                         onChange={changeHandler}
                     />
                 </Form.Group>
+
                 <Form.Group className="mb-3" controlId="formRepeatPassword">
-                    <Form.Label className='text-field'>Confirm Password</Form.Label>
+                    <Form.Label className='text-field'>Confirm Password:</Form.Label>
                     <Form.Control
                         type="password"
                         name="password2"
@@ -84,15 +104,15 @@ export default function Register() {
                     />
                 </Form.Group>
                 {error &&
-                    (
+                    <div>
                         <Form.Text className="text-small-message">
                             {error}
                         </Form.Text>
-                    )
+                    </div>
                 }
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
+                </Form.Group> */}
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>

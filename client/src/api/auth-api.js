@@ -13,7 +13,7 @@ export const login = async (email, password) => {
     return authData;
 }
 
-export const register = async (email, password, username) => {
-    const authData = await request.post(`${BASE_URL}/register`, {email, password});
+export const register = async (email, username, password) => {
+    const authData = await request.post(`${BASE_URL}/register`, {email, username, password});
     return authData;
 }

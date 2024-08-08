@@ -23,8 +23,8 @@ export const useLogin = () => {
 
 export const useRegister = () => {
     const {changeAuthState} = useContext(AuthContext);    // get AuthContext data from app
-    const registerHandler = async (email, password) => {
-        const {password: _, ...authData} = await register(email, password);     // get data without password (isolate it)
+    const registerHandler = async (email, username, password) => {
+        const {password: _, ...authData} = await register(email, username, password);     // get data without password (isolate it)
         changeAuthState(authData);
         return authData;
     }
