@@ -30,7 +30,7 @@ function Login() {
         <div className='login-container'>
             <Form className="login-form" onSubmit={submitHandler}>
                 <div>
-                    <h3>Enter your e-mail and password</h3>
+                    <h3>Login to your aaccount:</h3>
                 </div>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label className='text-field'>Email address</Form.Label>

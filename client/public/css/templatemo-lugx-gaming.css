@@ -455,6 +455,18 @@ Header Style
 	line-height: 30px;
 }
 
+.header-area .main-nav li.profile {
+	color: #008af8;
+	line-height: 40px;
+	margin: 0 10px 0 10px;
+}
+
+.header-area .main-nav li.profile span {
+	font-family:Verdana, Geneva, Tahoma, sans-serif;
+	/* font-size: large; */
+	padding-left: 5px;
+}
+
 .header-area .main-nav .nav li a {
 	display: block;
 	padding-left: 20px;
