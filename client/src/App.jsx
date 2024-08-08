@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useState } from "react";
 
 import { AuthContext } from "./contexts/AuthContext";
@@ -11,11 +11,15 @@ import Register from './components/register/Register';
 import GameDetails from './components/game-details/GameDetails';
 import GameCreate from "./components/game-create/GameCreate";
 
+// REMEMBER: The main data-chain is: Components -> Hooks -> API
+//                                   Components <- Hooks <- API
 function App() {
     // TODO: remove this from app
     const [authState, setAuthState] = useState({});
 
-    const changeAuthState = (state) => {     // wrapper func -> to secure 'setAuthState'
+    const changeAuthState = (state) => {     // wrapper func -> to protect 'setAuthState' func
+        // TODO: Quick solution -> fix by implementing persisted authState
+        localStorage.setItem('accessToken', state.accessToken); // now the 'requester' will have access to the Token
         setAuthState(state);
     };
     const contextData = {
@@ -40,6 +44,7 @@ function App() {
                 <Route path='/create-game' element={<GameCreate />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
+                <Route path='/logout' element={<Navigate to='/' />} />
             </Routes>
         </AuthContext.Provider>
     );
