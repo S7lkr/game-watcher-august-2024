@@ -472,7 +472,7 @@ Header Style
 }
 
 .header-area .main-nav li.profile span {
-	font-family:Verdana, Geneva, Tahoma, sans-serif;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	/* font-size: large; */
 	padding-left: 5px;
 }
@@ -1474,7 +1474,7 @@ Single Page Style
 --------------------------------------------- 
 */
 .single-product .container {
-	background-color:#000;
+	background-color: #000;
 	border-radius: 15px;
 	padding-bottom: 3em;
 }
@@ -1648,7 +1648,9 @@ Single Page Style
 	padding: 10px;
 }
 
-.single-product h2, h4, h5 {
+.single-product h2,
+h4,
+h5 {
 	color: #d7d7d7;
 	text-align: center;
 }
@@ -1673,12 +1675,12 @@ Contact PAge Style
 --------------------------------------------- 
 */
 
-#contact-form  {
+#contact-form {
 	margin-top: 1em;
 	text-align: center;
 }
 
-#contact-form  fieldset textarea {
+#contact-form fieldset textarea {
 	min-width: 700px;
 	min-height: 120px;
 	padding: 7px;
@@ -1769,6 +1771,36 @@ Contact PAge Style
 	background-color: #0071f8;
 }
 
+#view-all-button {
+	text-align: right;
+}
+
+#view-all-button button {
+	display: inline-block;
+	height: 50px;
+	line-height: 50px;
+	background-color: #ee626b;
+	color: #fff;
+	font-size: 15px;
+	text-transform: uppercase;
+	font-weight: 500;
+	padding: 0px 25px;
+	border: none;
+	border-radius: 25px;
+	right: 0;
+	top: 0;
+	transition: all .3s;
+}
+
+#view-all-button button:hover {
+	background-color: #0071f8;
+}
+
+#view-all-button button a {
+	color: #e7e7e7;
+}
+
+
 /* 
 ---------------------------------------------
 Login Page Style
@@ -1787,7 +1819,7 @@ Login Page Style
 	padding: 2em;
 }
 
-.login-form div > h3 {
+.login-form div>h3 {
 	color: #e7e7e7;
 	margin-bottom: 1.5em;
 }

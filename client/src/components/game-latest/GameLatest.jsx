@@ -27,8 +27,8 @@ export default function MostPlayed() {
                         </div>
                     </div>
                     <div className="col-lg-6">
-                        <div className="main-button">
-                            <Link to="/game-list">View All</Link>
+                        <div id="view-all-button">
+                            <button><Link to="/game-list">View All</Link></button>
                         </div>
                     </div>
                     {games.length > 0
