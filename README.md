@@ -62,8 +62,8 @@ SoftUni React Course Project
 
 ## 8. UI Implementation
 - [x] Dynamic Navigation
-- [ ] Create game
+- [x] Create game
   - [x] Create component
-  - [ ] API function
-  - [ ] Hook
+  - [x] API function
+  - [x] Hook
 - [ ] Latest Games -> use custom hook!
