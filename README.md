@@ -67,3 +67,13 @@ SoftUni React Course Project
   - [x] API function
   - [x] Hook
 - [ ] Latest Games -> use custom hook!
+
+## NOTES:
++ %20 = space
++ %2C = comma
+--------------------------------------
+## 1. URL:
+ 1. Latest Games URL -> `http://localhost:3030/data/games?sortBy=_createdOn%20desc&pageSize=3`
+ 2. Use: URLSearchParams
+
+## 2. seedData -> line:1341 in server.js (make persistent data)
