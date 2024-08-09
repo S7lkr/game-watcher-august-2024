@@ -5,12 +5,12 @@ import { request } from "./requester";
 const BASE_URL = 'http://localhost:3030/data/games';
 
 const getAll = async () => {
-    const response = await request.get(`${BASE_URL}/list`);
+    const response = await request.get(`${BASE_URL}`);
     return Object.values(response);
 }
 
 const getOne = async (gameId) => {
-    const response = await request.get(`${BASE_URL}/details/${gameId}`);
+    const response = await request.get(`${BASE_URL}/${gameId}`);
     return response;
 }
 
