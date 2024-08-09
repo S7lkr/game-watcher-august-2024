@@ -17,9 +17,6 @@ export default function GameDetails() {
         }
         const newComment = await commentsAPI.create(gameId, username, comment);
         
-        // SHOW NEW COMMENT IN GAMEDETAILS AFTER POST ON SERVER:
-
-        // Method 1: use the state --> comment + newComment
         setGame(oldState => ({
             ...oldState,
             comments: {
@@ -27,12 +24,7 @@ export default function GameDetails() {
                 [newComment._id]: newComment,
             }
         }));
-
-        // // Method 2: Prefetch gameData on 'comment' state change :)
-        // const fetchComments = await commentsAPI.getAll(gameId);
-        // setComment(Object.values(fetchComments));
-        // 'comment' should be send as parameter to useGetOneGames(gameId,>>comment<<)
-        // and placed in dependancy array [] of useEffect in order to invoke it again (prefetch)
+        
         setUsername('');
         setComment('');     // clean up both inputs
     }
