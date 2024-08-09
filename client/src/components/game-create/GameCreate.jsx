@@ -25,7 +25,9 @@ export default function GameCreate() {
             const { _id: gameId } = await createGame(values);
             navigate(`/game-list/${gameId}/details`);
         } catch (err) {
+            
             // TODO: Set error state and display error (like in Login or Register)
+            console.log(err);
             console.log(err.message);
         }
     }
@@ -37,7 +39,7 @@ export default function GameCreate() {
 
     return (
         <div className='login-container'>
-            <Form className="login-form">
+            <Form className="login-form" onSubmit={submitHandler}>
                 <div>
                     <h3>Create new Game:</h3>
                 </div>
