@@ -1009,6 +1009,7 @@ Trending Style
 }
 
 .trending .item .down-content h4 {
+	text-align: left;
 	font-size: 17px;
 	font-weight: 600;
 	transition: all .3s;
