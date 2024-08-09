@@ -11,8 +11,10 @@ import Register from './components/register/Register';
 import GameDetails from './components/game-details/GameDetails';
 import GameCreate from "./components/game-create/GameCreate";
 
-// REMEMBER: The main data-chain is: Components -> Hooks -> API
-//                                   Components <- Hooks <- API
+// REMEMBER: Data-chain is: COMPONENTS --> HOOKS --> API --> REQUESTER
+//                              ^                                 |
+//                              |   data               data       V
+//                              -----------HOOKS <---------------API
 function App() {
     // TODO: remove this from app
     const [authState, setAuthState] = useState({});
