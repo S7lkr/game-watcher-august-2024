@@ -70,6 +70,7 @@ SoftUni React Course Project
 
 ## 9. Refactoring
  - [x] Extract authState from App component
+ - [x] Create persisting auth state (using localStorage)
 
 
 ## NOTES:

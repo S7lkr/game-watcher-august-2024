@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import usePersistedState from "../hooks/usePersistedState";
 
 // This is a CONTEXT (to be shared between all components)
 export const AuthContext = createContext({     // default values
@@ -12,10 +13,12 @@ export const AuthContext = createContext({     // default values
 
 // This is a COMPONENT which will provide the context (only for user authentication)
 export function AuthContextProvider(props) {
-    const [authState, setAuthState] = useState({});
-    const changeAuthState = (state) => {     // wrapper func -> to protect 'setAuthState' func
-        // TODO: Quick solution -> fix by implementing persisted authState
-        localStorage.setItem('accessToken', state.accessToken); // now the 'requester' will have access to the Token
+    // const [authState, setAuthState] = useState({});
+    const [authState, setAuthState] = usePersistedState('auth', {});
+
+    const changeAuthState = (state) => {                        // wrapper func -> to protect 'setAuthState' func
+        // TODO: Fix by implementing persisted authState
+        localStorage.setItem('accessToken', state.accessToken);         // now the 'requester' will have access to the Token
         setAuthState(state);
     };
     const contextData = {
