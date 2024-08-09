@@ -1,10 +1,10 @@
-import { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
-import { AuthContext } from "../../contexts/AuthContext";
+import { useAuthContext } from "../../contexts/AuthContext";
+
 
 export default function NavBar() {
     const activeLink = ({ isActive }) => isActive ? { fontWeight: 'bold' } : {};        // active link css
-    const { username, isAuthenticated } = useContext(AuthContext);
+    const { username, isAuthenticated } = useAuthContext();
     return (
         <header className="header-area header-sticky">
             <div className="container">

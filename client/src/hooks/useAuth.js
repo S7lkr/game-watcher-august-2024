@@ -1,7 +1,5 @@
-import { useContext } from "react";
-
 import { login, register } from "../api/auth-api"
-import { AuthContext } from "../contexts/AuthContext";
+import { useAuthContext } from "../contexts/AuthContext";
 
 
 // This func performs:
@@ -9,7 +7,7 @@ import { AuthContext } from "../contexts/AuthContext";
 // 2.Declares a POST request func
 // 3. When invoked -> makes request & updates user authState
 export const useLogin = () => {
-    const { changeAuthState } = useContext(AuthContext);    // get AuthContext data from app
+    const { changeAuthState } = useAuthContext();    // get AuthContext data from app
 
     const loginHandler = async (email, password) => {       // POST request with email & password
         const {password: _, ...authData} = await login(email, password);    // get data without password (isolate it)

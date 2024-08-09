@@ -68,6 +68,10 @@ SoftUni React Course Project
   - [x] Hook
 - [ ] Latest Games -> use custom hook!
 
+## 9. Refactoring
+ - [x] Extract authState from App component
+
+
 ## NOTES:
 + %20 = space
 + %2C = comma
