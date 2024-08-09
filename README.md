@@ -44,11 +44,11 @@ SoftUni React Course Project
 - [ ] Comment Hooks
 
 ## 7. Authentication (user access to components & functionalities)
-- [ ] Auth API
+- [x] Auth API
   - [x] Login
   - [x] Register
   - [x] Logout
-- [ ] Auth API Hooks
+- [x] Auth API Hooks
   - [x] Login
   - [x] Register
   - [x] Logout
