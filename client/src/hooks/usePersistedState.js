@@ -13,9 +13,12 @@ export default function usePersistedState(key, initialState) {      // prevents 
     });
 
     const updateState = (value) => {
-        localStorage.setItem(key, JSON.stringify(value));   // update localStorage
+        const newState = typeof(value) === 'function'
+            ? value(state)
+            : value;
+        localStorage.setItem(key, JSON.stringify(newState));   // update localStorage
 
-        setState(value);                                    // and update state
+        setState(newState);                                    // and update state
     }
     return [state, updateState];
 }
