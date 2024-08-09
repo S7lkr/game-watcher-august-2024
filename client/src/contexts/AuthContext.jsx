@@ -9,11 +9,11 @@ export const AuthContext = createContext({     // default values
     accessToken: '',
     isAuthenticated: false,     // if truthy value :true, if falsy (false, 0, -0, 0n, "", null, undefined, NaN, document.all) :false
     changeAuthState: (authState = {}) => null,
+    logout: () => null,
 });
 
 // This is a COMPONENT which will provide the context (only for user authentication)
 export function AuthContextProvider(props) {
-    // const [authState, setAuthState] = useState({});
     const [authState, setAuthState] = usePersistedState('auth', {});
 
     const changeAuthState = (state) => {                        // wrapper func -> to protect 'setAuthState' func
@@ -21,13 +21,19 @@ export function AuthContextProvider(props) {
         localStorage.setItem('accessToken', state.accessToken);         // now the 'requester' will have access to the Token
         setAuthState(state);
     };
+
+    const logout = () => {
+        setAuthState(null);
+    }
     const contextData = {
-        userId: authState._id,
-        email: authState.email,
-        username: authState.username,
-        accessToken: authState.accessToken,
-        isAuthenticated: !!authState.email,     // if falsy -> false, if truty -> true
+        userId: authState?._id,
+        email: authState?.email,
+        username: authState?.username,
+        accessToken: authState?.accessToken,
+        isAuthenticated: !!authState?.email,     // if falsy -> false, if truty -> true
         changeAuthState,
+        logout,
+        
     };
 
     // encapsulate AuthContext within the return

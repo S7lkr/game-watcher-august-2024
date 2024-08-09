@@ -1,4 +1,6 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+
+import { AuthContextProvider } from "./contexts/AuthContext";   // custom Provider
 
 import NavBar from "./components/nav-bar/NavBar";
 import Home from './components/home/Home';
@@ -8,7 +10,7 @@ import Login from './components/login/Login';
 import Register from './components/register/Register';
 import GameDetails from './components/game-details/GameDetails';
 import GameCreate from "./components/game-create/GameCreate";
-import { AuthContextProvider } from "./contexts/AuthContext";   // custom Provider
+import Logout from "./components/logout/Logout";
 
 // App role: Layoutin & Routes
 function App() {
@@ -24,7 +26,7 @@ function App() {
                 <Route path='/create-game' element={<GameCreate />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
-                <Route path='/logout' element={<Navigate to='/' />} />
+                <Route path='/logout' element={<Logout />} />
             </Routes>
         </AuthContextProvider>
     );

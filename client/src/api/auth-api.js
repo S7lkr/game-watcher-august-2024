@@ -17,3 +17,5 @@ export const register = async (email, username, password) => {
     const authData = await request.post(`${BASE_URL}/register`, {email, username, password});
     return authData;
 }
+
+export const logout = async () => await request.get(`${BASE_URL}/logout`);

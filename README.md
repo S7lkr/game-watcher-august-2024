@@ -47,17 +47,17 @@ SoftUni React Course Project
 - [ ] Auth API
   - [x] Login
   - [x] Register
-  - [ ] Logout
+  - [x] Logout
 - [ ] Auth API Hooks
   - [x] Login
   - [x] Register
-  - [ ] Logout
+  - [x] Logout
 - [x] Auth state & context
 - [x] Token management
 - [x] Login
 - [x] Register
   - [x] Add register validation
-- [ ] Logout
+- [x] Logout
 - [x] Authorized Requests
 
 ## 8. UI Implementation
