@@ -17,7 +17,6 @@ export default function usePersistedState(key, initialState) {      // prevents 
             ? value(state)
             : value;
         localStorage.setItem(key, JSON.stringify(newState));   // update localStorage
-
         setState(newState);                                    // and update state
     }
     return [state, updateState];
