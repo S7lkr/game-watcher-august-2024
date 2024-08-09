@@ -15,7 +15,7 @@ export default async function requester(method, url, data) {
     if (accessToken) {
         options.headers = {
             ...options.headers,
-            ['X-Authorization']: accessToken,   // just create a new key:value
+            ['X-Authorization']: accessToken,   // create a new key:value (to the existing 'options.headers' object)
         }
     }
 
