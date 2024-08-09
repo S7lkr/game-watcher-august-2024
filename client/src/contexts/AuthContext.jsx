@@ -17,8 +17,6 @@ export function AuthContextProvider(props) {
     const [authState, setAuthState] = usePersistedState('auth', {});
 
     const changeAuthState = (state) => {                        // wrapper func -> to protect 'setAuthState' func
-        // TODO: Fix by implementing persisted authState
-        localStorage.setItem('accessToken', state.accessToken);         // now the 'requester' will have access to the Token
         setAuthState(state);
     };
 
