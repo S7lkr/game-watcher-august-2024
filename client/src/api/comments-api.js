@@ -8,7 +8,10 @@ const BASE_URL = 'http://localhost:3030/data/comments';             // --> migra
 const create = (gameId, text) => request.post(BASE_URL, { gameId, text });
 
 const getAll = (gameId) => {
-    const urlParams = new URLSearchParams({ where: `gameId="${gameId}"` });
+    const urlParams = new URLSearchParams({
+        where: `gameId="${gameId}"`,
+        load: `author=_ownerId:users`,
+    });
     return request.get(`${BASE_URL}?${urlParams.toString()}`);
 };     // get all comments
 
