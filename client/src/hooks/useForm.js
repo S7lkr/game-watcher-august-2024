@@ -21,10 +21,9 @@ export function useForm(initialValues, submitCallback) {
     // we create this func ONLY to prevent page refresh. Otherwise it does exactly the same as 'submitCallBack' (SUBMITs the form)
     const submitHandler = (e) => {
         e.preventDefault();
-        submitCallback(values);
-        console.log(values);
-        
+        submitCallback(values);        
     }
+    
     return {
         values,
         changeHandler,

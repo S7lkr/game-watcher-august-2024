@@ -1,10 +1,10 @@
 function Comments({
-    username,
+    _ownerId,
     text,
 }) {
     return (
         <div className='com-container'>
-            <span>{username}:</span>
+            <span>{_ownerId}:</span>
             <p>{text}</p>
         </div>
     );

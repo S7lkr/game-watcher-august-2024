@@ -1,33 +1,30 @@
-import { useState } from "react";
 import { useParams } from "react-router";
+
 import { useGetOneGames } from "../../hooks/useGames";
+import { useForm } from "../../hooks/useForm";
+import { useCreateComment, useGetAllComments } from "../../hooks/useComments";
+import { useAuthContext } from "../../contexts/AuthContext";
 import Comments from "../comments/Comments";
-import commentsAPI from "../../api/comments-api";
+
+const initialvalues = {
+    comment: '',
+}
 
 export default function GameDetails() {
     const { gameId } = useParams();
-    const [game, setGame] = useGetOneGames(gameId);
-    const [username, setUsername] = useState('');
-    const [comment, setComment] = useState('');
-
-    const commentSubmitHandler = async (e) => {
-        e.preventDefault();
-        if (username == '' || comment == '') {
-            return;
-        }
-        const newComment = await commentsAPI.create(gameId, username, comment);
-        
-        setGame(oldState => ({
-            ...oldState,
-            comments: {
-                ...oldState.comments,
-                [newComment._id]: newComment,
-            }
-        }));
-        
-        setUsername('');
-        setComment('');     // clean up both inputs
-    }
+    const [game] = useGetOneGames(gameId);
+    const comments = useGetAllComments(gameId);
+    const createComment = useCreateComment();
+    const { isAuthenticated } = useAuthContext();
+    const {
+        values,
+        changeHandler,
+        submitHandler,
+    } = useForm(
+        initialvalues,
+        (values) => {
+            createComment(gameId, values.comment);
+        });
 
     return (
         <div className="single-product section">
@@ -60,46 +57,39 @@ export default function GameDetails() {
 
             <section id="comments-section">
                 <h4>Comments:</h4>
-                {Object.keys(game.comments || {}).length > 0
-                    ? Object.values(game.comments).map(comment => <Comments key={comment._id} {...comment}/>)
+                {comments?.length > 0
+                    ? comments.map(comment => <Comments key={comment._id} {...comment} />)
                     : <h5>--No comments yet--</h5>
                 }
             </section>
+            {isAuthenticated && (
+                <div id="add-comment-section">
+                    <h2>Add new comment</h2>
 
-            <div id="add-comment-section">
-                <h2>Add new comment</h2>
-                <form id="contact-form" action="" method="post" onSubmit={commentSubmitHandler}>
-                    <div className="row">
-                        <div className="col-lg-6">
-                                <input
-                                    type="text"
-                                    name="username"
-                                    id="username"
-                                    placeholder="Username..."
-                                    value={username}
-                                    onChange={(e) => setUsername(e.target.value)}
-                                />
+                    <form id="contact-form" action="" method="post" onSubmit={submitHandler}>
+                        <div className="row">
+                            <div className="col-lg-12">
+                                <fieldset>
+                                    <textarea
+                                        name="comment"
+                                        id="comment"
+                                        placeholder="Comment something..."
+                                        value={values.comment}
+                                        onChange={changeHandler}
+                                    >
+                                    </textarea>
+                                </fieldset>
+                            </div>
+                            <div className="col-lg-12">
+                                <fieldset className="buttons comments">
+                                    <button type="submit" id="form-submit" className="orange-button">Add Comment</button>
+                                </fieldset>
+                            </div>
                         </div>
-                        <div className="col-lg-12">
-                            <fieldset>
-                                <textarea
-                                    name="message"
-                                    id="message"
-                                    placeholder="Comment something..."
-                                    value={comment}
-                                    onChange={(e) => setComment(e.target.value)}
-                                >
-                                </textarea>
-                            </fieldset>
-                        </div>
-                        <div className="col-lg-12">
-                            <fieldset className="buttons comments">
-                                <button type="submit" id="form-submit" className="orange-button">Add Comment</button>
-                            </fieldset>
-                        </div>
-                    </div>
-                </form>
-            </div>
+                    </form>
+
+                </div>
+            )}
         </div>
     );
 }
