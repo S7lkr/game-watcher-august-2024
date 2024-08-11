@@ -13,7 +13,7 @@ const initialvalues = {
 export default function GameDetails() {
     const { gameId } = useParams();
     const [game] = useGetOneGames(gameId);
-    const [comments, setComments] = useGetAllComments(gameId);
+    const [comments, dispatch] = useGetAllComments(gameId);
     const createComment = useCreateComment();
     const { isAuthenticated } = useAuthContext();
     const {
@@ -25,7 +25,8 @@ export default function GameDetails() {
         async (values) => {
             try {
                 const newComment = await createComment(gameId, values.comment);
-                setComments(prevComments => [...prevComments, newComment]);
+                // setComments(prevComments => [...prevComments, newComment]);
+                dispatch({type: 'ADD_COMMENT', payload: newComment});
             } catch (err) {
                 console.log(err.message);
             }
@@ -63,7 +64,7 @@ export default function GameDetails() {
             <section id="comments-section">
                 <h4>Comments:</h4>
                 {comments?.length > 0
-                    ? comments.map(comment => <Comments key={comment._id} {...comment} />)
+                    ? comments.map(comment => <Comments key={comment._id} comment={comment} />)
                     : <h5>--No comments yet--</h5>
                 }
             </section>
