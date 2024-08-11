@@ -74,9 +74,8 @@ SoftUni React Course Project
  - [x] Comments
 
 
-## NOTES:
-+ %20 = space
-+ %2C = comma
+--------------------------------------
+## NOTES: 
 --------------------------------------
 ## 1. URL:
  1. Latest Games URL -> `http://localhost:3030/data/games?sortBy=_createdOn%20desc&pageSize=3`
