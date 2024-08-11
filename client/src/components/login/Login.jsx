@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Button from 'react-bootstrap/Button';
@@ -9,17 +10,21 @@ import { useLogin } from '../../hooks/useAuth';
 
 const initialValues = { email: '', password: '' }
 
-function Login() {
+export default function Login() {
+    const [error, setError] = useState('');
     const login = useLogin();
     const navigate = useNavigate();
 
     // callback func (it is sending the login data to server)
     const loginFetcher = async ({ email, password }) => {
+        if (email == '' || password == '') {
+            return setError('Empty fields left!');
+        }
         try {
             await login(email, password);
             navigate('/');
         } catch (err) {
-            console.log(err.message);
+           setError(err.message);
         }
     };
     //                receive 3                                   send 2
@@ -58,6 +63,13 @@ function Login() {
                         onChange={changeHandler}
                     />
                 </Form.Group>
+                {error &&
+                    <div>
+                        <Form.Text className="text-small-message">
+                            {error && error}
+                        </Form.Text>
+                    </div>
+                }
                 {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group> */}
@@ -68,5 +80,3 @@ function Login() {
         </div>
     );
 }
-
-export default Login;
