@@ -1,11 +1,10 @@
-function Comments({
-    _ownerId,
-    text,
-}) {
+function Comments({ comment }) {
+    console.log(comment.text);
+
     return (
         <div className='com-container'>
-            <span>{_ownerId}:</span>
-            <p>{text}</p>
+            <span>{comment.author.email}:</span>
+            <p>{comment.text}</p>
         </div>
     );
 }
