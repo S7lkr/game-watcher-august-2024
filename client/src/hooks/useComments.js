@@ -14,6 +14,6 @@ export function useGetAllComments(gameId) {
             setComments(allComments);
         })();
     }, [gameId]);
-    
-    return comments;
+
+    return [comments, setComments];
 }
