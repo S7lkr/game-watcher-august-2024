@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext } from "react";
 import usePersistedState from "../hooks/usePersistedState";
 
 // This is a CONTEXT (to be shared between all components)
@@ -31,15 +31,14 @@ export function AuthContextProvider(props) {
         isAuthenticated: !!authState?.email,     // if falsy -> false, if truty -> true
         changeAuthState,
         logout,
-        
     };
 
     // encapsulate AuthContext within the return
     return (
-        //                     Provider will share AuthContext custom hook with 'contextData'
+        //                     Provider will share AuthContext CONTEXT with 'contextData'
         //                              v
         <AuthContext.Provider value={contextData}>
-            {props.children}    {/* == all components inside App */}
+            {props.children}    {/* == all components inside the app */}
         </AuthContext.Provider>
     )
 }

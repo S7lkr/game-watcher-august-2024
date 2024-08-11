@@ -12,7 +12,7 @@ export const useLogin = () => {
     const loginHandler = async (email, password) => {       // POST request with email & password
         const {password: _, ...authData} = await login(email, password);    // get data without password (isolate it)
         changeAuthState(authData);             // save response into state
-        console.log(authData);
+        // console.log(authData);
         return authData;
     }
     return loginHandler;        // return POST fetcher
@@ -31,8 +31,12 @@ export const useRegister = () => {
 export const useLogout = () => {
     const { logout: localLogout } = useAuthContext();
     const logoutHandler = async () => {
-        await logout();     // logout (server)
         localLogout();      // clear localStorage
+        try {
+            await logout();     // logout (server)
+        } catch (err) {
+            console.log(err.message);
+        }
     };
     return logoutHandler;
 }

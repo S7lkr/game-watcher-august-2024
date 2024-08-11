@@ -1,10 +1,13 @@
 import { NavLink, Link } from "react-router-dom";
-import { useAuthContext } from "../../contexts/AuthContext";
+import withAuth from "../../HOC/withAuth";
+// import { useAuthContext } from "../../contexts/AuthContext";
 
 
-export default function NavBar() {
+function NavBar({
+    auth,
+}) {
     const activeLink = ({ isActive }) => isActive ? { fontWeight: 'bold' } : {};        // active link css
-    const { username, isAuthenticated } = useAuthContext();
+    const { username, isAuthenticated } = auth;     // this replaces 'const {username, isAuthenticate} = useAuthContext()'
     return (
         <header className="header-area header-sticky">
             <div className="container">
@@ -51,3 +54,6 @@ export default function NavBar() {
         </header>
     );
 }
+
+const EnhancedNavBar = withAuth(NavBar);
+export default EnhancedNavBar;
