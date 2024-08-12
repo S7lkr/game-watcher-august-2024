@@ -1,11 +1,11 @@
-import { useNavigate, useParams } from "react-router";
+import { useParams } from "react-router";
 
 import { useGetOneGames, useDeleteGame } from "../../hooks/useGames";
 import { useForm } from "../../hooks/useForm";
 import { useCreateComment, useGetAllComments } from "../../hooks/useComments";
 import { useAuthContext } from "../../contexts/AuthContext";
 import Comments from "../comments/Comments";
-import gamesAPI from "../../api/games-api";
+// import gamesAPI from "../../api/games-api";
 
 const initialvalues = {
     comment: '',
@@ -18,8 +18,7 @@ export default function GameDetails() {
     const createComment = useCreateComment();
     const { isAuthenticated, email, userId } = useAuthContext();
     const isOwner = userId === game._ownerId;
-    // const gameDeleteHandler = useDeleteGame(gameId);
-    const navigate = useNavigate();
+    const gameDeleteHandler = useDeleteGame();
     const {
         values,
         changeHandler,
@@ -35,15 +34,6 @@ export default function GameDetails() {
                 console.log(err.message);
             }
         });
-
-    const gameDeleteHandler = async () => {
-        try {
-            await gamesAPI.remove(gameId);
-            navigate('/game-list');
-        } catch (err) {
-            console.log(err.message);
-        }
-    }
 
     return (
         <div className="single-product section">
@@ -69,7 +59,7 @@ export default function GameDetails() {
                             <div className="buttons details">
                                 <hr style={{ color: 'white' }} />
                                 <button><i className="fa fa-pen-to-square"></i> Edit</button>
-                                <button onClick={gameDeleteHandler}><i className="fa fa-trash-can"></i> Delete</button>
+                                <button onClick={() => gameDeleteHandler(gameId)}><i className="fa fa-trash-can"></i> Delete</button>
                             </div>
                         )}
 

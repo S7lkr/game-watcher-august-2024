@@ -41,6 +41,6 @@ export function useDeleteGame() {
         } catch (err) {
             console.log(err.message);
         }
-        return gameDeleteHandler;
     }
+    return gameDeleteHandler;
 }
