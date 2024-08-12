@@ -15,7 +15,7 @@ export default function GameDetails() {
     const [game] = useGetOneGames(gameId);
     const [comments, dispatch] = useGetAllComments(gameId);
     const createComment = useCreateComment();
-    const { isAuthenticated } = useAuthContext();
+    const { isAuthenticated, email } = useAuthContext();
     const {
         values,
         changeHandler,
@@ -26,7 +26,7 @@ export default function GameDetails() {
             try {
                 const newComment = await createComment(gameId, values.comment);
                 // setComments(prevComments => [...prevComments, newComment]);
-                dispatch({type: 'ADD_COMMENT', payload: newComment});
+                dispatch({ type: 'ADD_COMMENT', payload: { ...newComment, author: { email } } });
             } catch (err) {
                 console.log(err.message);
             }

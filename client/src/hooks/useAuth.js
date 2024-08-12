@@ -12,7 +12,6 @@ export const useLogin = () => {
     const loginHandler = async (email, password) => {       // POST request with email & password
         const {password: _, ...authData} = await login(email, password);    // get data without password (isolate it)
         changeAuthState(authData);             // save response into state
-        // console.log(authData);
         return authData;
     }
     return loginHandler;        // return POST fetcher

@@ -69,9 +69,10 @@ SoftUni React Course Project
 - [ ] Latest Games -> use custom hook!
 
 ## 9. Refactoring
- - [x] Extract authState from App component
- - [x] Create persisting auth state (using localStorage)
- - [x] Comments
+- [x] Extract authState from App component
+- [x] Create persisting auth state (using localStorage)
+- [x] Comments
+- [x] Refactor comments with useReducer
 
 
 --------------------------------------
