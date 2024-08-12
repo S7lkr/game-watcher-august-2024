@@ -14,12 +14,15 @@ const getOne = async (gameId) => {
     return response;
 }
 
-export const create = async (gameData) => request.post(`${BASE_URL}`, gameData);
+const create = async (gameData) => request.post(`${BASE_URL}`, gameData);
+
+const remove = async (gameId) => await request.del(`${BASE_URL}/${gameId}`);
 
 const gamesAPI = {
     getAll,
     getOne,
     create,
+    remove,
 }
 
 export default gamesAPI;

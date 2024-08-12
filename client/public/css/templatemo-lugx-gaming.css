@@ -1525,9 +1525,10 @@ Single Page Style
 
 .single-product .details {
 	display: flex;
-	justify-content: center;
-	column-gap: 5em;
+	justify-content: right;
+	column-gap: 1em;
 	margin-top: 3em;
+	margin-right: 3em;
 }
 
 .single-product .details button i {

@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import gamesAPI from "../api/games-api";
+import { useNavigate } from "react-router";
+
 
 // Custom hook: Gets all games from server
 export function useGetAllGames() {
@@ -23,12 +25,22 @@ export function useGetOneGames(gameId) {
     return [game, setGame];
 }
 
+// Custom hook: Create game on server
 export function useGameCreate() {
     const gameCreateHandler = (gameData) => gamesAPI.create(gameData);
     return gameCreateHandler;
 }
 
-export default {
-    useGetAllGames,
-    useGetOneGames,
+// Custome hook: Delete a game from server
+export function useDeleteGame() {
+    const navigate = useNavigate();
+    const gameDeleteHandler = async (gameId) => {
+        try {
+            await gamesAPI.remove(gameId);
+            navigate('/game-list');
+        } catch (err) {
+            console.log(err.message);
+        }
+        return gameDeleteHandler;
+    }
 }

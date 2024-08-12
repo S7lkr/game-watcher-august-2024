@@ -63,10 +63,11 @@ SoftUni React Course Project
 ## 8. UI Implementation
 - [x] Dynamic Navigation
 - [x] Create game
-  - [x] Create component
   - [x] API function
   - [x] Hook
-- [ ] Latest Games -> use custom hook!
+- [ ] Latest Games
+- [ ] Edit game
+- [x] Delete game
 
 ## 9. Refactoring
 - [x] Extract authState from App component
