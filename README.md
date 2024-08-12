@@ -73,7 +73,7 @@ SoftUni React Course Project
 - [x] Create persisting auth state (using localStorage)
 - [x] Comments
 - [x] Refactor comments with useReducer
-- [ ] Show 'edit' & 'delete' buttons if game-owner
+- [x] Edit and delete game ownership rendering
 
 
 --------------------------------------
