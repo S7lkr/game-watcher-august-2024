@@ -15,7 +15,8 @@ export default function GameDetails() {
     const [game] = useGetOneGames(gameId);
     const [comments, dispatch] = useGetAllComments(gameId);
     const createComment = useCreateComment();
-    const { isAuthenticated, email } = useAuthContext();
+    const { isAuthenticated, email, userId } = useAuthContext();
+    const isOwner = userId === game._ownerId;
     const {
         values,
         changeHandler,
@@ -52,11 +53,14 @@ export default function GameDetails() {
                             <li><p>Max Level: {game.maxLevel}</p></li>
                             <li><p>Release Year: {game.releaseYear}</p></li>
                         </ul>
-                        <hr style={{ color: 'white' }} />
-                        <div className="buttons details">
-                            <button><i className="fa fa-pen-to-square"></i> Edit</button>
-                            <button><i className="fa fa-trash-can"></i> Delete</button>
-                        </div>
+                        {isOwner && (
+                            <div className="buttons details">
+                                <hr style={{ color: 'white' }} />
+                                <button><i className="fa fa-pen-to-square"></i> Edit</button>
+                                <button><i className="fa fa-trash-can"></i> Delete</button>
+                            </div>
+                        )}
+                        
                     </div>
                 </div>
             </div>
