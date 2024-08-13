@@ -27,7 +27,7 @@ function NavBar({
                                     ?
                                     (
                                         <>
-                                            <li><NavLink to="/create-game" style={activeLink}>Create Game</NavLink></li>
+                                            <li><NavLink to="/game-list/create" style={activeLink}>Create Game</NavLink></li>
                                             <li>|</li>
                                             <li className="profile"><i className="fa-regular fa-user"><span>{username}</span></i></li>
                                             <li><NavLink to="/logout" style={activeLink}>LogOut</NavLink></li>
