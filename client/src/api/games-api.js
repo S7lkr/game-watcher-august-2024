@@ -8,13 +8,27 @@ const getAll = async () => {
     const response = await request.get(`${BASE_URL}`);
     return Object.values(response);
 }
+const getLatest = async () => {
+    const urlSearchParams = new URLSearchParams({
+        sortBy: '_createdOn desc',
+        pageSize: 4,
+    });
+    // console.log(urlSearchParams.toString().replace('+', '%20'));
+    
+    const response = await request.get(`${BASE_URL}?${urlSearchParams.toString().replace('+', '%20')}`);
+    const latestGames = Object.values(response);
+    
+    return latestGames;
+}
 const getOne = (gameId) => request.get(`${BASE_URL}/${gameId}`)
 const create = (gameData) => request.post(`${BASE_URL}`, gameData);
 const remove = (gameId) => request.del(`${BASE_URL}/${gameId}`);
 const update = (gameId, gameData) => request.put(`${BASE_URL}/${gameId}`, gameData);
 
+
 const gamesAPI = {
     getAll,
+    getLatest,
     getOne,
     create,
     remove,

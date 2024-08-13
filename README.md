@@ -65,7 +65,7 @@ SoftUni React Course Project
 - [x] Create game
   - [x] API function
   - [x] Hook
-- [ ] Latest Games
+- [x] Latest Games
 - [x] Edit game
 - [x] Delete game
 
@@ -75,6 +75,7 @@ SoftUni React Course Project
 - [x] Comments
 - [x] Refactor comments with useReducer
 - [x] Edit and delete game ownership rendering
+- [ ] Add route guards
 
 
 --------------------------------------

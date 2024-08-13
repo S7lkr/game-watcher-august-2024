@@ -10,9 +10,9 @@ export default function MostPlayed() {
     useEffect(() => {
         (async () => {
             // TODO: Modify to fetch only latest games
-            const response = await gamesAPI.getAll();
-            const games = Object.values(response).reverse().slice(0, 4);    // take only LAST 4 games (newest)
-            setGames(games);
+            const latestGames = await gamesAPI.getLatest();                             // show only the LAST (newest) 3 games
+            // const latestGames = Object.values(response).reverse().slice(0, 4);       // po selskiq na4in            
+            setGames(latestGames);
         })();
     }, []);
 
