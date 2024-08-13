@@ -43,7 +43,7 @@ export function AuthContextProvider(props) {
     )
 }
 
-// This is a HOOK
+// This is a HOOK (storing user session when logged in)
 export function useAuthContext() {
     const authData = useContext(AuthContext);
     return authData;
