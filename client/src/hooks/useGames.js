@@ -15,11 +15,21 @@ export function useGetAllGames() {
 
 // Custom hook: Get a SINGLE game from server
 export function useGetOneGames(gameId) {
-    const [game, setGame] = useState({});
+    const [game, setGame] = useState({
+        title: '',
+        imageUrl: '',
+        category: '',
+        type: '',
+        maxLevel: '',
+        releaseYear: '',
+        summary: '',
+    });
     useEffect(() => {
         (async () => {
             const response = await gamesAPI.getOne(gameId);
             setGame(response);
+            // console.log(response);
+            
         })();
     }, []);
     return [game, setGame];
@@ -34,12 +44,15 @@ export function useGameCreate() {
 // Custome hook: Delete a game from server
 export function useDeleteGame() {
     const navigate = useNavigate();
-    const gameDeleteHandler = async (gameId) => {
-        try {
-            await gamesAPI.remove(gameId);
-            navigate('/game-list');
-        } catch (err) {
-            console.log(err.message);
+    const gameDeleteHandler = async (gameId, title) => {
+        const isConfirmed = confirm(`Delete ${title} game? Are you sure?`);
+        if (isConfirmed) {
+            try {
+                await gamesAPI.remove(gameId);
+                navigate('/game-list');
+            } catch (err) {
+                console.log(err.message);
+            }
         }
     }
     return gameDeleteHandler;

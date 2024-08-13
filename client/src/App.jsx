@@ -11,6 +11,7 @@ import Register from './components/register/Register';
 import GameDetails from './components/game-details/GameDetails';
 import GameCreate from "./components/game-create/GameCreate";
 import Logout from "./components/logout/Logout";
+import GameEdit from "./components/game-edit/GameEdit";
 
 // App role: Layoutin & Routes
 function App() {
@@ -23,6 +24,7 @@ function App() {
                 {/* TODO: About subroutes */}
                 <Route path='/game-list' element={<GameList />} />
                 <Route path='/game-list/:gameId/details' element={<GameDetails />} />
+                <Route path='/game-list/:gameId/edit' element={<GameEdit />} />
                 <Route path='/create-game' element={<GameCreate />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />

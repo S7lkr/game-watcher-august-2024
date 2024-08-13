@@ -1,4 +1,5 @@
 import { useParams } from "react-router";
+import {Link} from "react-router-dom";
 
 import { useGetOneGames, useDeleteGame } from "../../hooks/useGames";
 import { useForm } from "../../hooks/useForm";
@@ -51,18 +52,17 @@ export default function GameDetails() {
                         <p>{game.summary}</p>
                         <hr style={{ color: 'white' }} />
                         <ul>
-                            <li><p>Game Type: {game.gameType}</p></li>
+                            <li><p>Type: {game.type}</p></li>
                             <li><p>Max Level: {game.maxLevel}</p></li>
                             <li><p>Release Year: {game.releaseYear}</p></li>
                         </ul>
                         {isOwner && (
                             <div className="buttons details">
                                 <hr style={{ color: 'white' }} />
-                                <button><i className="fa fa-pen-to-square"></i> Edit</button>
-                                <button onClick={() => gameDeleteHandler(gameId)}><i className="fa fa-trash-can"></i> Delete</button>
+                                <button><Link to={`/game-list/${gameId}/edit`}><i className="fa fa-pen-to-square"></i> Edit</Link></button>
+                                <button onClick={() => gameDeleteHandler(gameId, game.title)}><i className="fa fa-trash-can"></i> Delete</button>
                             </div>
                         )}
-
                     </div>
                 </div>
             </div>
