@@ -12,6 +12,7 @@ export function useForm(initialValues, submitCallback) {
     useEffect(() => {
         setValues(initialValues);
     }, [initialValues]);        // will re-render on 'initialValues' change
+    
     // TODO: Add support for checkbox
     const changeHandler = (e) => {       // saves EVERY SINGLE INPUT from from fields in a state
         setValues(prevState => ({
