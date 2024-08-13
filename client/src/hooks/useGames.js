@@ -26,10 +26,12 @@ export function useGetOneGames(gameId) {
     });
     useEffect(() => {
         (async () => {
+            try {
             const response = await gamesAPI.getOne(gameId);
             setGame(response);
-            // console.log(response);
-            
+            } catch (err) {
+                console.log(err.message);
+            } 
         })();
     }, []);
     return [game, setGame];
