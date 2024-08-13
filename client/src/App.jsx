@@ -12,6 +12,7 @@ import GameDetails from './components/game-details/GameDetails';
 import GameCreate from "./components/game-create/GameCreate";
 import Logout from "./components/logout/Logout";
 import GameEdit from "./components/game-edit/GameEdit";
+import { PrivateGuard, PublicGuard } from "./components/common/RouteGuards";
 
 // App role: Layoutin & Routes
 function App() {
@@ -19,16 +20,24 @@ function App() {
         <AuthContextProvider>
             <NavBar />
             <Routes>
+                {/* I. Public Part (accessible without authentication) */}
                 <Route path='/' element={<Home />} />
                 <Route path='/about' element={<About />} />
                 {/* TODO: About subroutes */}
                 <Route path='/game-list' element={<GameList />} />
                 <Route path='/game-list/:gameId/details' element={<GameDetails />} />
-                <Route path='/game-list/:gameId/edit' element={<GameEdit />} />
-                <Route path='/create-game' element={<GameCreate />} />
-                <Route path='/login' element={<Login />} />
-                <Route path='/register' element={<Register />} />
-                <Route path='/logout' element={<Logout />} />
+
+                <Route element={<PublicGuard />}>
+                    <Route path='/login' element={<Login />} />
+                    <Route path='/register' element={<Register />} />
+                </Route>
+
+                {/* II. Private Part (accessible ONLY for registered users) */}
+                <Route element={<PrivateGuard />}>
+                    <Route path='/game-list/create' element={<GameCreate />} />
+                    <Route path='/game-list/:gameId/edit' element={<GameEdit />} />
+                    <Route path='/logout' element={<Logout />} />
+                </Route>
             </Routes>
         </AuthContextProvider>
     );

@@ -75,7 +75,7 @@ SoftUni React Course Project
 - [x] Comments
 - [x] Refactor comments with useReducer
 - [x] Edit and delete game ownership rendering
-- [ ] Add route guards
+- [x] Add route guards
 
 
 --------------------------------------
