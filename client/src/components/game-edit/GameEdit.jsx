@@ -2,29 +2,30 @@ import { useNavigate, useParams } from 'react-router';
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useForm } from '../../hooks/useForm';
 import { useGetOneGames } from '../../hooks/useGames';
-import gamesAPI from '../../api/games-api';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuthContext } from '../../contexts/AuthContext';
+
+import gamesAPI from '../../api/games-api';
 import Home from '../home/Home';
+import GameEditConfirmModal from '../GameEditConfirmModal';
 
 
 export default function GameEdit() {
     const navigate = useNavigate();
-    const { userId } = useAuthContext();
+    const { userId, isAuthenticated } = useAuthContext();
     const { gameId } = useParams();
     const [game, setGame] = useGetOneGames(gameId);
     const [isAuthorized, setIsAuthorized] = useState(false);
-    // const initialFormValues = useMemo(() => Object.assign({}, initialValues, game), [game]);    
 
     useEffect(() => {
-        if (userId === undefined) {
+        setIsAuthorized(false);
+        if (!isAuthenticated) {
             navigate('/login');
         }
-        // console.log(`Authorized: ${userId === game._ownerId}`);
         if (userId === game._ownerId) {
             setIsAuthorized(true);
         }
@@ -36,8 +37,8 @@ export default function GameEdit() {
         values,
     } = useForm(
         game,
-        isAuthorized,
-        async (values, isAuthorized) => {
+        async (values) => {
+            console.log(values);
             const isConfirmed = confirm('Are you sure you want to update this game?');
             if (isConfirmed) {
                 const updatedGame = await gamesAPI.update(gameId, values);
@@ -45,9 +46,11 @@ export default function GameEdit() {
                 navigate(`/game-list/${gameId}/details`);
             }
         });
+    console.log(isAuthorized);
 
-    return (
-        isAuthorized ? (
+    return !isAuthorized
+        ? <Home />
+        : (
             <div className='login-container'>
                 <Form className="login-form" onSubmit={submitHandler}>
                     <div>
@@ -141,7 +144,5 @@ export default function GameEdit() {
                     </Button>
                 </Form>
             </div>
-        ) :
-            <Home />
-    );
+        )
 }
