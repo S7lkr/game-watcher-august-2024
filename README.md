@@ -66,7 +66,7 @@ SoftUni React Course Project
   - [x] API function
   - [x] Hook
 - [ ] Latest Games
-- [ ] Edit game
+- [x] Edit game
 - [x] Delete game
 
 ## 9. Refactoring
