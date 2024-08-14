@@ -2,17 +2,20 @@ import { Routes, Route } from "react-router-dom";
 
 import { AuthContextProvider } from "./contexts/AuthContext";   // custom Provider
 
+import { PrivateGuard, PublicGuard } from "./components/common/RouteGuards";
 import NavBar from "./components/nav-bar/NavBar";
 import Home from './components/home/Home';
 import GameList from './components/game-list/GameList';
 import About from './components/about/About';
+import ContactUs from "./components/about-contact-us/ContactUs";
+import OurTeam from "./components/about-our-team/OurTeam";
 import Login from './components/login/Login';
 import Register from './components/register/Register';
 import GameDetails from './components/game-details/GameDetails';
 import GameCreate from "./components/game-create/GameCreate";
 import Logout from "./components/logout/Logout";
 import GameEdit from "./components/game-edit/GameEdit";
-import { PrivateGuard, PublicGuard } from "./components/common/RouteGuards";
+import Technology from "./components/about-technology/Technology";
 
 // App role: Layoutin & Routes
 function App() {
@@ -22,8 +25,11 @@ function App() {
             <Routes>
                 {/* I. Public Part (accessible without authentication) */}
                 <Route path='/' element={<Home />} />
-                <Route path='/about' element={<About />} />
-                {/* TODO: About subroutes */}
+                <Route path='/about' element={<About />}>
+                    <Route path="contact-us" element={<ContactUs />} />
+                    <Route path="team" element={<OurTeam />} />
+                    <Route path="technology" element={<Technology />} />
+                </Route>
                 <Route path='/game-list' element={<GameList />} />
                 <Route path='/game-list/:gameId/details' element={<GameDetails />} />
 
