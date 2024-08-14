@@ -18,7 +18,7 @@ import GameEdit from "./components/game-edit/GameEdit";
 import Services from "./components/about-services/Services";
 
 
-// App role: Layoutin & Routes
+// App role: Layouting & Routes
 function App() {
     return (
         <AuthContextProvider>
