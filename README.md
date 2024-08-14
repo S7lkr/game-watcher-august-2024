@@ -79,10 +79,10 @@ SoftUni React Course Project
 
 ## 10. About section
 - [x] Create About Component
-- [ ] About sub-components
+- [x] About sub-components
   - [x] Contact Us
   - [x] Our Team
-  - [ ] Technology
+  - [x] Services
 
 
 --------------------------------------
