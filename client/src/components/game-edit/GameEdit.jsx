@@ -38,7 +38,7 @@ export default function GameEdit() {
     } = useForm(
         game,
         async (values) => {
-            console.log(values);
+            // console.log(values);
             // const isConfirmed = confirm('Are you sure you want to update this game?');
             // if (isConfirmed) {
             const updatedGame = await gamesAPI.update(gameId, values);
@@ -56,7 +56,7 @@ export default function GameEdit() {
     return (
         <div>
             <div className='login-container'>
-                <Form className="login-form" onSubmit={submitHandler}>
+                <Form className="login-form">
                     <div>
                         <h3>Edit Game:</h3>
                     </div>
@@ -143,12 +143,12 @@ export default function GameEdit() {
                             </textarea>
                         </fieldset>
                     </div>
-                    <Button variant="primary" type="submit" id='create-game' onClick={() => setShowConfirmPanel(true)}>
+                    <Button variant="primary" type="button" id='create-game' onClick={() => setShowConfirmPanel(true)}>
                         Edit Game
                     </Button>
                 </Form>
             </div>
-            {showConfirmPanel && <GameEditConfirmModal hide={hide} submit={submitHandler} />}
+            {showConfirmPanel && <GameEditConfirmModal hide={hide} submit={submitHandler} gameData={values} />}
         </div>
 
     );

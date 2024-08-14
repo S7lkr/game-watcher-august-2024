@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 function GameEditConfirmModal({
     hide,
     submit,
+    gameData
 }) {
     return (
         <div
@@ -15,11 +16,11 @@ function GameEditConfirmModal({
                 </Modal.Header>
 
                 <Modal.Body>
-                    <p>Are you sure you want to edit</p>
+                    <p>Are you sure you want to edit "{gameData.title}"?</p>
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button variant="warning" onClick={submit}>Confirm</Button>
+                    <Button variant="success" onClick={submit}>Confirm</Button>
                     <Button variant="secondary" onClick={hide}>Cancel</Button>
                 </Modal.Footer>
             </Modal.Dialog>
