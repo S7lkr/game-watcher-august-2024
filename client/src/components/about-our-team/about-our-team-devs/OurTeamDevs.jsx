@@ -55,7 +55,7 @@ export default function OurTeamDevs() {
                     </div>
                     <div className="col-md-12 text-center">
                         <div className="pt-2">
-                            <h5 className="mt-4 font-weight-medium mb-0">Frank Sinatra</h5>
+                            <h5 className="mt-4 font-weight-medium mb-0">Gordon Freeman</h5>
                             <h6 className="subtitle mb-3">3D Models Specialist</h6>
                             <p>You can relay on our amazing features list and also our customer services will be great experience.</p>
                             <ul className="list-inline">
