@@ -77,6 +77,13 @@ SoftUni React Course Project
 - [x] Edit and delete game ownership rendering
 - [x] Add route guards
 
+## 10. About section
+- [x] Create About Component
+- [ ] About sub-components
+  - [x] Contact Us
+  - [x] Our Team
+  - [ ] Technology
+
 
 --------------------------------------
 ## NOTES: 
