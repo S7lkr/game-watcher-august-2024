@@ -1846,7 +1846,7 @@ Our Team
 .team4 {
 	font-family: "Montserrat", sans-serif;
 	max-width: 90%;
-	margin: auto;
+	margin: 5em auto;
 	font-weight: 300;
 	color: #8d97ad;
 	background-color: lightgoldenrodyellow;
@@ -1891,6 +1891,22 @@ Our Team
 	color: #316ce8;
 }
 
+
+/* 
+---------------------------------------------
+Technology
+--------------------------------------------- 
+*/
+
+section.bsb-service-7.py-5.py-xl-8 .container {
+	background-color: #000;
+	/* border-top-left-radius: 20px;
+	border-top-right-radius: 20px; */
+}
+
+h2.display-5 {
+	color: #7a7a7a;
+}
 
 /* 
 ---------------------------------------------
