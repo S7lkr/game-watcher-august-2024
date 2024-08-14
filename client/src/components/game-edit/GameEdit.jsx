@@ -10,7 +10,7 @@ import { useAuthContext } from '../../contexts/AuthContext';
 
 import gamesAPI from '../../api/games-api';
 import Home from '../home/Home';
-import GameEditConfirmModal from '../GameEditConfirmModal';
+import GameEditConfirmModal from '../game-edit/GameEditConfirmModal';
 
 
 export default function GameEdit() {
