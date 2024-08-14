@@ -1,3 +1,4 @@
+@import url(//fonts.googleapis.com/css?family=Montserrat:300,500);
 /*
 
 TemplateMo 589 lugx gaming
@@ -1673,7 +1674,7 @@ h5 {
 div.modal.show {
 	display: block;
 	backdrop-filter: blur(8px);
-	
+
 	z-index: 20;
 	text-align: center;
 }
@@ -1701,6 +1702,24 @@ Contact PAge Style
 	min-width: 700px;
 	min-height: 120px;
 	padding: 7px;
+}
+
+#about-nav {
+	max-width: 400px;
+	margin: auto;
+	background-color: #1e1e1e;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+#about-nav .nav-item a:hover {
+	font-weight: bold;
+	color: white;
+}
+
+div.contact-page.section .row {
+	justify-content: center;
+	margin-bottom: 2em;
 }
 
 .contact-page .left-text {
@@ -1815,6 +1834,61 @@ Contact PAge Style
 
 #view-all-button button a {
 	color: #e7e7e7;
+}
+
+
+/* 
+---------------------------------------------
+Our Team
+--------------------------------------------- 
+*/
+
+.team4 {
+	font-family: "Montserrat", sans-serif;
+	max-width: 90%;
+	margin: auto;
+	font-weight: 300;
+	color: #8d97ad;
+	background-color: lightgoldenrodyellow;
+	border-radius: 20px;
+}
+
+.team4 h1,
+.team4 h2,
+.team4 h3,
+.team4 h4,
+.team4 h5,
+.team4 h6 {
+	color: #3e4555;
+}
+
+.team4 .font-weight-medium {
+	font-weight: 500;
+}
+
+.team4 h5 {
+	line-height: 22px;
+	font-size: 18px;
+}
+
+.team4 .subtitle {
+	color: #8d97ad;
+	line-height: 24px;
+	font-size: 13px;
+}
+
+.team4 ul li a {
+	color: #8d97ad;
+	padding-right: 15px;
+	-webkit-transition: 0.1s ease-in;
+	-o-transition: 0.1s ease-in;
+	transition: 0.1s ease-in;
+}
+
+.team4 ul li a:hover {
+	-webkit-transform: translate3d(0px, -5px, 0px);
+	transform: translate3d(0px, -5px, 0px);
+	color: #316ce8;
 }
 
 
