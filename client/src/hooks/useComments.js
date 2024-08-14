@@ -7,6 +7,7 @@ export function useCreateComment() {
     return createHandler;
 }
 
+// Reducer for comments (operates similarly to useState)
 function commentsReducer(state, action) {
     switch (action.type) {
         case 'GET_ALL':
