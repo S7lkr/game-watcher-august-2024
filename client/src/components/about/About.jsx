@@ -16,7 +16,7 @@ function About() {
                     <Nav.Link as={Link} to="/about/team">Our Team</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link as={Link} to="/about/technology">Our Technology</Nav.Link>
+                    <Nav.Link as={Link} to="/about/services">Our Services</Nav.Link>
                 </Nav.Item>
             </Nav>
             <Outlet />

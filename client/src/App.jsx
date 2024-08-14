@@ -15,7 +15,8 @@ import GameDetails from './components/game-details/GameDetails';
 import GameCreate from "./components/game-create/GameCreate";
 import Logout from "./components/logout/Logout";
 import GameEdit from "./components/game-edit/GameEdit";
-import Technology from "./components/about-technology/Technology";
+import Services from "./components/about-services/Services";
+
 
 // App role: Layoutin & Routes
 function App() {
@@ -28,7 +29,7 @@ function App() {
                 <Route path='/about' element={<About />}>
                     <Route path="contact-us" element={<ContactUs />} />
                     <Route path="team" element={<OurTeam />} />
-                    <Route path="technology" element={<Technology />} />
+                    <Route path="services" element={<Services />} />
                 </Route>
                 <Route path='/game-list' element={<GameList />} />
                 <Route path='/game-list/:gameId/details' element={<GameDetails />} />
