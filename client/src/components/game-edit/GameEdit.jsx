@@ -1,8 +1,7 @@
-import { useNavigate, useParams } from 'react-router';
+import { Navigate, useNavigate, useParams } from 'react-router';
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useForm } from '../../hooks/useForm';
 import { useGetOneGames } from '../../hooks/useGames';
@@ -16,20 +15,21 @@ import GameEditConfirmModal from '../GameEditConfirmModal';
 
 export default function GameEdit() {
     const navigate = useNavigate();
-    const { userId, isAuthenticated } = useAuthContext();
+    // const { userId, isAuthenticated } = useAuthContext();
     const { gameId } = useParams();
     const [game, setGame] = useGetOneGames(gameId);
-    const [isAuthorized, setIsAuthorized] = useState(false);
+    // const [isAuthorized, setIsAuthorized] = useState(false);
+    const [showConfirmPanel, setShowConfirmPanel] = useState(false);
 
-    useEffect(() => {
-        setIsAuthorized(false);
-        if (!isAuthenticated) {
-            navigate('/login');
-        }
-        if (userId === game._ownerId) {
-            setIsAuthorized(true);
-        }
-    }, [game]);
+    // useEffect(() => {
+    //     setIsAuthorized(false);
+    //     if (!isAuthenticated) {
+    //         navigate('/login');
+    //     }
+    //     if (userId === game._ownerId) {
+    //         setIsAuthorized(true);
+    //     }
+    // }, [game]);
 
     const {
         changeHandler,
@@ -39,18 +39,22 @@ export default function GameEdit() {
         game,
         async (values) => {
             console.log(values);
-            const isConfirmed = confirm('Are you sure you want to update this game?');
-            if (isConfirmed) {
-                const updatedGame = await gamesAPI.update(gameId, values);
-                setGame(updatedGame);
-                navigate(`/game-list/${gameId}/details`);
-            }
+            // const isConfirmed = confirm('Are you sure you want to update this game?');
+            // if (isConfirmed) {
+            const updatedGame = await gamesAPI.update(gameId, values);
+            setGame(updatedGame);
+            navigate(`/game-list/${gameId}/details`);
+            // }
         });
-    console.log(isAuthorized);
+    const hide = () => {
+        setShowConfirmPanel(false);
+    }
+    const show = () => {
+        setShowConfirmPanel(true);
+    }
 
-    return !isAuthorized
-        ? <Home />
-        : (
+    return (
+        <div>
             <div className='login-container'>
                 <Form className="login-form" onSubmit={submitHandler}>
                     <div>
@@ -139,10 +143,13 @@ export default function GameEdit() {
                             </textarea>
                         </fieldset>
                     </div>
-                    <Button variant="primary" type="submit" id='create-game'>
+                    <Button variant="primary" type="submit" id='create-game' onClick={() => setShowConfirmPanel(true)}>
                         Edit Game
                     </Button>
                 </Form>
             </div>
-        )
+            {showConfirmPanel && <GameEditConfirmModal hide={hide} submit={submitHandler} />}
+        </div>
+
+    );
 }

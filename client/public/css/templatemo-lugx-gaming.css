@@ -1670,6 +1670,18 @@ h5 {
 	row-gap: 1em;
 }
 
+div.modal.show {
+	position: absolute;
+	width: 300px;
+	margin-top: 45vh;
+	display: block;
+	z-index: 20;
+	text-align: center;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
 
 /* 
 ---------------------------------------------
