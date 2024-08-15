@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-// import { request } from "../../api/requester";
 import gamesAPI from "../../api/games-api";
 import GameLatestItem from "./game-latest-item/GameLatestItem";
 
@@ -10,7 +9,7 @@ export default function MostPlayed() {
     useEffect(() => {
         (async () => {
             // TODO: Modify to fetch only latest games
-            const latestGames = await gamesAPI.getLatest();                             // show only the LAST (newest) 3 games
+            const latestGames = await gamesAPI.getLatest(3);                            // show only the LAST (newest) 'count' games
             // const latestGames = Object.values(response).reverse().slice(0, 4);       // po selskiq na4in            
             setGames(latestGames);
         })();

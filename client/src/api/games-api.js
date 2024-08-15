@@ -8,11 +8,11 @@ const getAll = async () => {
     const response = await request.get(`${BASE_URL}`);
     return Object.values(response);
 }
-const getLatest = async () => {
+const getLatest = async (gamesCount) => {
     const urlSearchParams = new URLSearchParams({
         sortBy: '_createdOn desc',
-        pageSize: 4,
-    });
+        pageSize: gamesCount,
+    });                                                                      // .replace('+', '%20')    ?!
     const response = await request.get(`${BASE_URL}?${urlSearchParams.toString().replace('+', '%20')}`);
     const latestGames = Object.values(response);
     
@@ -21,7 +21,7 @@ const getLatest = async () => {
 const search = async (title) => {
     const searchPattern = new URLSearchParams({
         where: `title="${title}"`,
-    });    
+    });                                                                    // .replace('+', '%20')      ?!
     const response = await request.get(`${BASE_URL}?${searchPattern.toString().replace('+', '%20')}`);    
     const game = response[0];
     
