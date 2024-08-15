@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 import { AuthContextProvider } from "./contexts/AuthContext";   // custom Provider
 
-import { PrivateGuard, PublicGuard } from "./components/common/RouteGuards";
+import { AuthorizedGuard, PrivateGuard, PublicGuard } from "./components/common/RouteGuards";
 import NavBar from "./components/nav-bar/NavBar";
 import Home from './components/home/Home';
 import GameList from './components/game-list/GameList';
@@ -42,7 +42,9 @@ function App() {
                 {/* II. Private Part (accessible ONLY for registered users) */}
                 <Route element={<PrivateGuard />}>
                     <Route path='/game-list/create' element={<GameCreate />} />
-                    <Route path='/game-list/:gameId/edit' element={<GameEdit />} />
+                    <Route element={<AuthorizedGuard />}>
+                        <Route path='/game-list/:gameId/edit' element={<GameEdit />} />
+                    </Route>
                     <Route path='/logout' element={<Logout />} />
                 </Route>
             </Routes>
