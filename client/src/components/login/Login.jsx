@@ -27,7 +27,7 @@ export default function Login() {
            setError(err.message);
         }
     };
-    //                receive 3                                   send 2
+    //               receive                                      send
     //                  v                                           v
     const { values, changeHandler, submitHandler } = useForm(initialValues, loginFetcher);
 
