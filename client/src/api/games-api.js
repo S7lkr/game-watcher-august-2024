@@ -13,12 +13,19 @@ const getLatest = async () => {
         sortBy: '_createdOn desc',
         pageSize: 4,
     });
-    // console.log(urlSearchParams.toString().replace('+', '%20'));
-    
     const response = await request.get(`${BASE_URL}?${urlSearchParams.toString().replace('+', '%20')}`);
     const latestGames = Object.values(response);
     
     return latestGames;
+}
+const search = async (title) => {
+    const searchPattern = new URLSearchParams({
+        where: `title="${title}"`,
+    });    
+    const response = await request.get(`${BASE_URL}?${searchPattern.toString().replace('+', '%20')}`);    
+    const game = response[0];
+    
+    return game;
 }
 const getOne = (gameId) => request.get(`${BASE_URL}/${gameId}`)
 const create = (gameData) => request.post(`${BASE_URL}`, gameData);
@@ -33,6 +40,7 @@ const gamesAPI = {
     create,
     remove,
     update,
+    search,
 }
 
 export default gamesAPI;
