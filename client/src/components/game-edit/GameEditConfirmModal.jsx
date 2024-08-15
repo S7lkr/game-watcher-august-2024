@@ -12,7 +12,7 @@ function GameEditConfirmModal({
         >
             <Modal.Dialog>
                 <Modal.Header closeButton onClick={hide}>
-                    <Modal.Title>Modal title</Modal.Title>
+                    <Modal.Title>Edit Confirm</Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body>
@@ -20,8 +20,8 @@ function GameEditConfirmModal({
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <Button variant="success" onClick={submit}>Confirm</Button>
-                    <Button variant="secondary" onClick={hide}>Cancel</Button>
+                    <Button variant="success" onClick={submit}>Yes</Button>
+                    <Button variant="secondary" onClick={hide}>No</Button>
                 </Modal.Footer>
             </Modal.Dialog>
         </div>
