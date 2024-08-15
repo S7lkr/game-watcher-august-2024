@@ -42,6 +42,7 @@ function App() {
                 {/* II. Private Part (accessible ONLY for registered users) */}
                 <Route element={<PrivateGuard />}>
                     <Route path='/game-list/create' element={<GameCreate />} />
+                    {/* Access ONLY to authorized user (game-creator) */}
                     <Route element={<AuthorizedGuard />}>
                         <Route path='/game-list/:gameId/edit' element={<GameEdit />} />
                     </Route>
