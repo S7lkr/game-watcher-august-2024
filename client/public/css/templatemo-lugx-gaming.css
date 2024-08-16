@@ -1948,6 +1948,20 @@ Login Page Style
 	margin-top: 1em;
 }
 
+
+
+/* 
+---------------------------------------------
+Not Found Page
+--------------------------------------------- 
+*/
+
+#not-found {
+	background-color: #d7d7d7;
+	margin: 50vh auto;
+	text-align: center;
+}
+
 /* 
 ---------------------------------------------
 Responsive Style
