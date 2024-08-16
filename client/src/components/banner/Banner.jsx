@@ -2,11 +2,13 @@ import { useNavigate } from "react-router";
 
 import { useForm } from "../../hooks/useForm";
 import gamesAPI from "../../api/games-api";
+import { useState } from "react";
 
 const initialValues = {title: ''};
 
 export default function Banner() {
     const navigate = useNavigate();
+    const [error, setError] = useState('');
     const {
         values,
         changeHandler,
@@ -14,8 +16,14 @@ export default function Banner() {
     } = useForm(
         initialValues,                      // initial values
         async ({ title }) => {              // 'submitCallBack' func
-            const game = await gamesAPI.search(title);
-            navigate(`/game-list/${game._id}/details`);
+            try {
+                const game = await gamesAPI.search(title);
+                navigate(`/game-list/${game._id}/details`);
+            } catch (err) {
+                // alert(err);
+                setError('Game not found! Please enter the EXACT game title!');
+                console.log(err.message);
+            }
         });
 
     return (
@@ -40,6 +48,7 @@ export default function Banner() {
                                     />
                                     <button role="button">Search Game</button>
                                 </form>
+                                {error && <span style={{backgroundColor: "#000", color: "red", fontSize: "small", marginLeft: "1em"}}>{error}</span>}
                             </div>
                         </div>
                     </div>
