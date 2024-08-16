@@ -1,11 +1,12 @@
 import { useParams } from "react-router";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { useGetOneGames, useDeleteGame } from "../../hooks/useGames";
 import { useForm } from "../../hooks/useForm";
 import { useCreateComment, useGetAllComments } from "../../hooks/useComments";
 import { useAuthContext } from "../../contexts/AuthContext";
-import Comments from "../comments/Comments";
+import Comments from "./game-comments/Comments";
+import { useState } from "react";
 // import gamesAPI from "../../api/games-api";
 
 const initialvalues = {
@@ -13,13 +14,14 @@ const initialvalues = {
 }
 
 export default function GameDetails() {
+    const { isAuthenticated, email, userId } = useAuthContext();
     const { gameId } = useParams();
     const [game] = useGetOneGames(gameId);
     const [comments, dispatch] = useGetAllComments(gameId);
     const createComment = useCreateComment();
-    const { isAuthenticated, email, userId } = useAuthContext();
-    const isOwner = userId === game._ownerId;
     const gameDeleteHandler = useDeleteGame();
+    const isOwner = userId === game._ownerId;
+    const [error, setError] = useState('');
     const {
         values,
         changeHandler,
@@ -27,6 +29,10 @@ export default function GameDetails() {
     } = useForm(
         initialvalues,
         async (values) => {
+            if (values.comment == '') {
+                setError('Invalid comment! Comment should contain at least 1 symbol!');
+                return setTimeout(() => {setError('')}, 5000);
+            }
             try {
                 const newComment = await createComment(gameId, values.comment);
                 // setComments(prevComments => [...prevComments, newComment]);
@@ -77,7 +83,6 @@ export default function GameDetails() {
             {isAuthenticated && (
                 <div id="add-comment-section">
                     <h2>Add new comment</h2>
-
                     <form id="contact-form" action="" method="post" onSubmit={submitHandler}>
                         <div className="row">
                             <div className="col-lg-12">
@@ -92,6 +97,7 @@ export default function GameDetails() {
                                     </textarea>
                                 </fieldset>
                             </div>
+                            {error && <span style={{ fontSize: "small", color: "red", textAlign: "left" }}>{error}</span>}
                             <div className="col-lg-12">
                                 <fieldset className="buttons comments">
                                     <button type="submit" id="form-submit" className="orange-button">Add Comment</button>
