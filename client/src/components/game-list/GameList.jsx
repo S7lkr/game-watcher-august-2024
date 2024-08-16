@@ -15,9 +15,9 @@ export default function GameList() {
                         </div>
                     </div>
                     <div className="col-lg-6">
-                        <div className="main-button">
+                        {/* <div className="main-button">
                             <button>Refresh Games</button>
-                        </div>
+                        </div> */}
                     </div>
                     {games.length > 0
                         ? games.map(game => <GameListItem key={game._id} {...game} />)
