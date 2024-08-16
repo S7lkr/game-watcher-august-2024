@@ -20,8 +20,8 @@ export default function Banner() {
                 const game = await gamesAPI.search(title);
                 navigate(`/game-list/${game._id}/details`);
             } catch (err) {
-                // alert(err);
                 setError('Game not found! Please enter the EXACT game title!');
+                setTimeout(() => {setError('')}, 4000);
                 console.log(err.message);
             }
         });
