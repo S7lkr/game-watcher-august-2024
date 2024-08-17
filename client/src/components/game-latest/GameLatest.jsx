@@ -6,6 +6,7 @@ import Preloader from "../preloader/Preloader";
 
 export default function MostPlayed() {
     const [games, isFetch] = useGetLastGames(3);
+    
     return (isFetch
         ? <Preloader />
         : <div className="section trending">
