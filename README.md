@@ -1,4 +1,4 @@
-# jackpiro-games-july-2024
+# game-watcher-august-2024
 SoftUni React Course Project
 + NOTE: (do not forget to commit frequently after each step taken)
 
