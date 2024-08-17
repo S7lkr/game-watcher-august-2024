@@ -37,6 +37,19 @@ export function useGetOneGames(gameId) {
     return [game, setGame];
 }
 
+export function useGetLastGames(count) {
+    const [games, setGames] = useState([]);
+    useEffect(() => {
+        (async () => {
+            // TODO: Modify to fetch only latest games
+            const latestGames = await gamesAPI.getLatest(count);                        // show only the LAST (newest) 'count' games
+            // const latestGames = Object.values(response).reverse().slice(0, 4);       // po selskiq na4in            
+            setGames(latestGames);
+        })();
+    }, []);
+    return [games];
+}
+
 // Custom hook: Create game on server
 export function useGameCreate() {
     const gameCreateHandler = (gameData) => gamesAPI.create(gameData);

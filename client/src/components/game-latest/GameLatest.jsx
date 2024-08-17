@@ -1,20 +1,11 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import gamesAPI from "../../api/games-api";
 import GameLatestItem from "./game-latest-item/GameLatestItem";
+import { useGetLastGames } from "../../hooks/useGames";
+
 
 export default function MostPlayed() {
-    const [games, setGames] = useState([]);
-
-    useEffect(() => {
-        (async () => {
-            // TODO: Modify to fetch only latest games
-            const latestGames = await gamesAPI.getLatest(3);                            // show only the LAST (newest) 'count' games
-            // const latestGames = Object.values(response).reverse().slice(0, 4);       // po selskiq na4in            
-            setGames(latestGames);
-        })();
-    }, []);
-
+    const [games] = useGetLastGames(3);
+    
     return (
         <div className="section trending">
             <div className="container">
