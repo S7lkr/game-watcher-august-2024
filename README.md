@@ -69,6 +69,8 @@ SoftUni React Course Project
 - [x] Edit game
 - [x] Delete game
 - [x] Search game
+- [x] Preloader
+- [x] Footer
 
 ## 9. Refactoring
 - [x] Extract authState from App component
