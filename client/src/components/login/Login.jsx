@@ -7,11 +7,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useForm } from '../../hooks/useForm';
 import { useLogin } from '../../hooks/useAuth';
+import useIsFetching from "../../hooks/useIsFetching";
 
 const initialValues = { email: '', password: '' }
 
 export default function Login() {
     const [error, setError] = useState('');
+    const [_, toggleFetch] = useIsFetching();
     const login = useLogin();
     const navigate = useNavigate();
 
@@ -20,11 +22,13 @@ export default function Login() {
         if (email == '' || password == '') {
             return setError('Empty fields left!');
         }
+        toggleFetch();
         try {
             await login(email, password);
             navigate('/');
+            toggleFetch();
         } catch (err) {
-           setError(err.message);
+            setError(err.message);
         }
     };
     //               receive                                      send
