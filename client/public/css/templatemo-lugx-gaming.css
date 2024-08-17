@@ -1546,12 +1546,16 @@ Single Page Style
 	background-color: #ee626b;
 	color: #fff;
 	font-size: 20px;
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	font-weight: 500;
 	padding: 0px 17px;
 	border: none;
 	border-radius: 10px;
 	transition: all .3s;
+}
+
+.single-product button a {
+	color: #eee;
 }
 
 .single-product form button i {
