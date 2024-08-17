@@ -6,15 +6,22 @@ import { useNavigate } from "react-router";
 // Custom hook: Gets all games from server
 export function useGetAllGames() {
     const [games, setGames] = useState([]);
+    const [isFetch, setIsFetch] = useState(false);
     useEffect(() => {
         try {
-            gamesAPI.getAll()
-                .then(games => setGames(games));
+            (async () => {
+                setIsFetch(true);
+                const allGames = await gamesAPI.getAll();
+                setGames(allGames);
+                setIsFetch(false);
+            })();
+            // gamesAPI.getAll()
+            //     .then(games => setGames(games));
         } catch (err) {
             console.log(err.message);
         }
     }, []);
-    return [games];
+    return [games, isFetch];
 }
 
 // Custom hook: Get a SINGLE game from server
@@ -43,8 +50,10 @@ export function useGetOneGames(gameId) {
 
 export function useGetLastGames(count) {
     const [games, setGames] = useState([]);
+    const [isFetch, setIsFetch] = useState(false);
     useEffect(() => {
         (async () => {
+            setIsFetch(true);
             try {
                 const latestGames = await gamesAPI.getLatest(count);                     // show only the LAST (newest) 'count' games
                 // const latestGames = Object.values(response).reverse().slice(0, 4);    // po selskiq na4in            
@@ -52,9 +61,10 @@ export function useGetLastGames(count) {
             } catch (err) {
                 console.log(err);
             }
+            setIsFetch(false);
         })();
     }, []);
-    return [games];
+    return [games, isFetch];
 }
 
 // Custom hook: Create game on server

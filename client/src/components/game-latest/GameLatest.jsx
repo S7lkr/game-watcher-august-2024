@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 import GameLatestItem from "./game-latest-item/GameLatestItem";
 import { useGetLastGames } from "../../hooks/useGames";
+import Preloader from "../preloader/Preloader";
 
 
 export default function MostPlayed() {
-    const [games] = useGetLastGames(3);
-    
-    return (
-        <div className="section trending">
+    const [games, isFetch] = useGetLastGames(3);
+    return (isFetch
+        ? <Preloader />
+        : <div className="section trending">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-6">

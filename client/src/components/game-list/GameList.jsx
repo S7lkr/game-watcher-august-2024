@@ -1,11 +1,15 @@
-import GameListItem from "./game-list-item/GameListItem";
 import { useGetAllGames } from "../../hooks/useGames";
+import GameListItem from "./game-list-item/GameListItem";
+import Preloader from "../preloader/Preloader";
+
 
 export default function GameList() {
-    const [games] = useGetAllGames();   // this state uses the custom hook 'useGetAllGames' from 'useGames.js'
-
-    return (
-        <div className="section most-played">
+    const [games, isFetch] = useGetAllGames();   // this state uses the custom hook 'useGetAllGames' from 'useGames.js'
+    console.log(isFetch);
+    
+    return (isFetch
+        ? <Preloader />
+        : <div className="section most-played">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-6">
