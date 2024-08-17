@@ -1,13 +1,13 @@
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 import { useGetOneGames, useDeleteGame } from "../../hooks/useGames";
 import { useForm } from "../../hooks/useForm";
 import { useCreateComment, useGetAllComments } from "../../hooks/useComments";
 import { useAuthContext } from "../../contexts/AuthContext";
 import Comments from "./game-comments/Comments";
-import { useState } from "react";
-// import gamesAPI from "../../api/games-api";
+
 
 const initialvalues = {
     comment: '',
@@ -20,8 +20,8 @@ export default function GameDetails() {
     const [comments, dispatch] = useGetAllComments(gameId);
     const createComment = useCreateComment();
     const gameDeleteHandler = useDeleteGame();
-    const isOwner = userId === game._ownerId;
     const [error, setError] = useState('');
+    const isOwner = userId === game._ownerId;
     const {
         values,
         changeHandler,
@@ -105,7 +105,6 @@ export default function GameDetails() {
                             </div>
                         </div>
                     </form>
-
                 </div>
             )}
         </div>
