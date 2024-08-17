@@ -1,4 +1,4 @@
-import { act, useEffect, useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import commentsAPI from "../api/comments-api"
 
 
