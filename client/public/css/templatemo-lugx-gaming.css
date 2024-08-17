@@ -181,7 +181,7 @@ img {
 /* 
 ---------------------------------------------
 Global Styles
---------------------------------------------- 
+---------------------------------------------
 */
 html,
 body {
@@ -189,7 +189,7 @@ body {
 }
 
 body {
-	background-image: url("../images/background3.jpg");
+	background-image: url("../images/background15.jpeg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: center;
@@ -1479,6 +1479,7 @@ Single Page Style
 */
 .single-product .container {
 	background-color: #000;
+	opacity: 90%;
 	border-radius: 15px;
 	padding-bottom: 3em;
 }
