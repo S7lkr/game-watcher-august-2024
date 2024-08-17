@@ -1,19 +1,21 @@
 import { useState, useEffect } from "react";
-import gamesAPI from "../api/games-api";
 import { useNavigate } from "react-router";
+
+import gamesAPI from "../api/games-api";
+import useIsFetching from "./useIsFetching";
 
 
 // Custom hook: Gets all games from server
 export function useGetAllGames() {
     const [games, setGames] = useState([]);
-    const [isFetch, setIsFetch] = useState(false);
+    const [isFetching, toggleFetch] = useIsFetching();
     useEffect(() => {
         try {
             (async () => {
-                setIsFetch(true);
+                toggleFetch();
                 const allGames = await gamesAPI.getAll();
                 setGames(allGames);
-                setIsFetch(false);
+                toggleFetch();
             })();
             // gamesAPI.getAll()
             //     .then(games => setGames(games));
@@ -21,7 +23,7 @@ export function useGetAllGames() {
             console.log(err.message);
         }
     }, []);
-    return [games, isFetch];
+    return [games, isFetching];
 }
 
 // Custom hook: Get a SINGLE game from server
@@ -50,10 +52,10 @@ export function useGetOneGames(gameId) {
 
 export function useGetLastGames(count) {
     const [games, setGames] = useState([]);
-    const [isFetch, setIsFetch] = useState(false);
+    const [isFetching, toggleFetch] = useIsFetching();
     useEffect(() => {
         (async () => {
-            setIsFetch(true);
+            toggleFetch();
             try {
                 const latestGames = await gamesAPI.getLatest(count);                     // show only the LAST (newest) 'count' games
                 // const latestGames = Object.values(response).reverse().slice(0, 4);    // po selskiq na4in            
@@ -61,10 +63,10 @@ export function useGetLastGames(count) {
             } catch (err) {
                 console.log(err);
             }
-            setIsFetch(false);
+            toggleFetch();
         })();
     }, []);
-    return [games, isFetch];
+    return [games, isFetching];
 }
 
 // Custom hook: Create game on server
