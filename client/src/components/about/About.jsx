@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
+import { Link, Outlet } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
-import { Link, Outlet, useNavigate } from 'react-router-dom';
 
-function About() {
-    
+
+function About() {    
     return (
         <div id="about">
             <Nav
