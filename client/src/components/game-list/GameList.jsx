@@ -4,10 +4,9 @@ import Preloader from "../preloader/Preloader";
 
 
 export default function GameList() {
-    const [games, isFetch] = useGetAllGames();   // this state uses the custom hook 'useGetAllGames' from 'useGames.js'
-    console.log(isFetch);
+    const [games, isFetching] = useGetAllGames();   // <-- use 'useGetAllGames()' hook
     
-    return (isFetch
+    return (isFetching
         ? <Preloader />
         : <div className="section most-played">
             <div className="container">
