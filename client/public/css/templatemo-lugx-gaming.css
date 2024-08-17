@@ -1258,8 +1258,8 @@ footer {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-image: url(../images/footer-bg.jpg);
-	min-height: 150px;
-	border-radius: 150px 150px 0px 0px;
+	min-height: 100px;
+	border-radius: 100px 100px 0px 0px;
 }
 
 footer p {
@@ -1271,10 +1271,12 @@ footer p {
 }
 
 footer p a {
-	color: #fff;
+	color: orange;
 	transition: all .3s;
 	position: relative;
 	z-index: 3;
+	padding-left: 0.5em;
+	font-weight: 500;
 }
 
 footer p a:hover {

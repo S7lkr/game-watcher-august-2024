@@ -17,6 +17,7 @@ import Logout from "./components/logout/Logout";
 import GameEdit from "./components/game-edit/GameEdit";
 import Services from "./components/about-services/Services";
 import NotFound from "./components/not-found/404";
+import Footer from "./components/footer/Footer";
 
 
 // App role: Layouting & Routes
@@ -28,9 +29,10 @@ function App() {
                 {/* I. Public Part (accessible without authentication) */}
                 <Route path="/*" element={<NotFound />} />
                 <Route path="/home" element={<Navigate to="/" />} />
-                <Route path='/' element={<Home />} />
+                <Route path="/" element={<Home />} />
 
-                <Route path='/about' element={<About />}>
+                <Route path="/about" element={<Navigate to="/about/contact-us" />} />
+                <Route path="/about" element={<About />}>
                     <Route path="contact-us" element={<ContactUs />} />
                     <Route path="team" element={<OurTeam />} />
                     <Route path="services" element={<Services />} />
@@ -44,7 +46,6 @@ function App() {
                     <Route path='/register' element={<Register />} />
                 </Route>
 
-
                 {/* II. Private Part (accessible ONLY for registered users) */}
                 <Route element={<PrivateGuard />}>
                     <Route path='/game-list/create' element={<GameCreate />} />
@@ -53,10 +54,11 @@ function App() {
                     <Route element={<AuthorizedGuard />}>
                         <Route path='/game-list/:gameId/edit' element={<GameEdit />} />
                     </Route>
-                    
+
                     <Route path='/logout' element={<Logout />} />
                 </Route>
             </Routes>
+            <Footer />
         </AuthContextProvider>
     );
 }
