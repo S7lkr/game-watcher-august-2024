@@ -5,6 +5,7 @@ import { useGameCreate } from '../../hooks/useGames';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import gamesAPI from "../../api/games-api";
+import { useState } from "react";
 
 const initialValues = {
     title: '',
@@ -18,20 +19,29 @@ const initialValues = {
 
 export default function GameCreate() {
     const navigate = useNavigate();
-    const createGame = useGameCreate();
+    const [error, setError] = useState('');
     // upload values to server
     const gameCreateHandler = async (values) => {
-        try {
-            const { _id: gameId } = await gamesAPI.create(values);
-            console.log(gameId);
-            
-            navigate(`/game-list/${gameId}/details`);
-        } catch (err) {
-            
-            // TODO: Set error state and display error (like in Login or Register)
-            console.log(err);
-            console.log(err.message);
+        // Game data validator
+        if (
+            values.title == ''||
+            values.imageUrl == ''||
+            values.category == ''||
+            values.type == ''||
+            values.maxLevel == ''||
+            values.releaseYear == ''||
+            values.summary == ''
+        ) {
+            setError('Empty fields left!')
+            return setTimeout(() => setError(''), 5000);
         }
+            try {
+                const { _id: gameId } = await gamesAPI.create(values);
+                navigate(`/game-list/${gameId}/details`);
+            } catch (err) {
+                // Set error state and display error (like in Login or Register)
+                console.log(err.message);
+            }
     }
     const {
         values,
@@ -128,6 +138,7 @@ export default function GameCreate() {
                         </textarea>
                     </fieldset>
                 </div>
+                <p style={{color: "red"}}>{error}</p>
                 <Button variant="primary" type="submit" id='create-game'>
                     Create Game
                 </Button>
