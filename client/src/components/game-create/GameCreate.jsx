@@ -4,7 +4,7 @@ import { useForm } from '../../hooks/useForm';
 import { useGameCreate } from '../../hooks/useGames';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import gamesAPI from "../../api/games-api";
 
 const initialValues = {
     title: '',
@@ -22,7 +22,9 @@ export default function GameCreate() {
     // upload values to server
     const gameCreateHandler = async (values) => {
         try {
-            const { _id: gameId } = await createGame(values);
+            const { _id: gameId } = await gamesAPI.create(values);
+            console.log(gameId);
+            
             navigate(`/game-list/${gameId}/details`);
         } catch (err) {
             
