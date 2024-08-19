@@ -71,14 +71,37 @@ export function useGetLastGames(count) {
 
 // Custom hook: Create game on server
 export function useGameCreate() {
-    const gameCreateHandler = (gameData) => {
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
+    const gameCreateHandler = async (values) => {
+        // Game data validator
+        if (
+            values.title == '' ||
+            values.category == '' ||
+            values.type == '' ||
+            values.maxLevel == '' ||
+            values.releaseYear == '' ||
+            values.summary == ''
+        ) {
+            setError('Empty fields left!')
+            return setTimeout(() => setError(''), 5000);
+        }
+        if (values.imageUrl == '') {
+            values.imageUrl = "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
+        }
+        console.log(values);
+        
         try {
-            gamesAPI.create(gameData);
+            // const { _id: gameId } = await gamesAPI.create(values);
+            // navigate(`/game-list/${gameId}/details`);
+            await gamesAPI.create(values);
+            navigate('/game-list');
         } catch (err) {
+            // Set error state and display error (like in Login or Register)
             console.log(err.message);
         }
     }
-    return gameCreateHandler;
+    return [gameCreateHandler, error];
 }
 
 // Custome hook: Delete a game from server
