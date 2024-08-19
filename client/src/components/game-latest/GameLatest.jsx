@@ -5,7 +5,7 @@ import Preloader from "../preloader/Preloader";
 
 
 export default function MostPlayed() {
-    const [games, isFetch] = useGetLastGames(3);
+    const [games, isFetch] = useGetLastGames(4);
     
     return (isFetch
         ? <Preloader />
