@@ -1426,6 +1426,56 @@
                 "_createdOn": 1723271827407,
                 "_id": "759fdb16-7c82-4964-9e8c-00ed4873dabf"
             },
+            "598af2dc-f51d-489b-9c4a-98709c46a243": {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "title": "Counter-Strike 2",
+                "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730/header.jpg?t=1719426374",
+                "category": "Shooter",
+                "type": "Multiplayer/Co-op",
+                "maxLevel": "n/a",
+                "releaseYear": "2023",
+                "summary": "For over two decades, Counter-Strike has offered an elite competitive experience, one shaped by millions of players from across the globe. And now the next chapter in the CS story is about to begin. This is Counter-Strike 2.",
+                "_createdOn": 1724063222982,
+                "_id": "598af2dc-f51d-489b-9c4a-98709c46a243"
+            },
+            "675c8b08-c1c5-476c-83e8-e2ff15b8b5a4": {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "title": "DOTA 2",
+                "imageUrl": "https://cdn.akamai.steamstatic.com/apps/dota2/images/dota2_social.jpg",
+                "category": "RPG",
+                "type": "Multiplayer/Co-op",
+                "maxLevel": "80",
+                "releaseYear": "2019",
+                "summary": "Every day, millions of players worldwide enter battle as one of over a hundred Dota heroes. And no matter if it's their 10th hour of play or 1,000th, there's always something new to discover. With regular updates that ensure a constant evolution of gameplay, features, and heroes, Dota 2 has taken on a life of its own.",
+                "_createdOn": 1724067840095,
+                "_id": "675c8b08-c1c5-476c-83e8-e2ff15b8b5a4",
+                "_updatedOn": 1724069018341
+            },
+            "501546cf-a30a-4c52-b083-d1b7b807e24c": {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "title": "Brawlhalla",
+                "imageUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202311/3020/4c8d2599033aaa3e03954719a343f0edf8636c1941627baf.png",
+                "category": "Arcade",
+                "type": "Multiplayer/Co-op",
+                "maxLevel": "30",
+                "releaseYear": "2017",
+                "summary": "An epic platform fighter for up to 8 players online or local. Try casual free-for-alls, ranked matches, or invite friends to a private room. And it's free! Play cross-platform with millions of players on PlayStation, Xbox, Nintendo Switch, iOS, Android & Steam! Frequent updates. Over sixty Legends.",
+                "_createdOn": 1724069294345,
+                "_id": "501546cf-a30a-4c52-b083-d1b7b807e24c"
+            },
+            "2f1d7fa1-9334-45ab-859d-b887367490d4": {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "title": "Once Human",
+                "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2139460/header.jpg?t=1723792749",
+                "category": "Survival",
+                "type": "Multiplayer/Co-op",
+                "maxLevel": "130",
+                "releaseYear": "2024",
+                "summary": "Once Human is a multiplayer open-world survival game set in a strange, post-apocalyptic future. Unite with friends to fight monstrous enemies, uncover secret plots, compete for resources, and build your own territory. Once, you were merely human. Now, you have the power to remake the world.",
+                "_createdOn": 1724070617144,
+                "_id": "2f1d7fa1-9334-45ab-859d-b887367490d4",
+                "_updatedOn": 1724075351460
+            }
         },
         recipes: {
             "3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
