@@ -1,11 +1,14 @@
 # GAME-WATCHER-AUGUST-2024
 
-## What is this?
------------------------------------------------------------------------------
-This is a RESTfull API ajax application developed in JS React which served as a SoftUni React Course Exam Project. It is techically a website for gaming information and news.
------------------------------------------------------------------------------
+
+## Description:
+
+This is a RESTfull API ajax application developed in React JS, which served as a SoftUni React Course Exam Project. It is technically a website for gaming information and news.
+
+
+
 ## Project Setup:
------------------------------------------------------------------------------
+
 ### 1. Clone repo
 Open Command Prompt or VSC terminal, create a new folder, navigate to it in CMD/VSC:
 
